@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Poppins } from 'next/font/google';
+import { Poppins, PT_Serif, Cormorant_Garamond } from 'next/font/google';
 import './globals.scss';
 
 import { cookies } from 'next/headers';

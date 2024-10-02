@@ -10,7 +10,7 @@ const nextConfig = {
         hostname: 'placehold.co',
       },
       {
-        hostname: 'lavender-loris-843955.hostingersite.com',
+        hostname: 'cornflowerblue-grasshopper-449979.hostingersite.com',
       },
     ],
   },

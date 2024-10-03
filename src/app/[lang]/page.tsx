@@ -17,6 +17,7 @@ import { getCategoriesQuery } from '../queries/getAllBlogCategoriesQuery';
 import { getTagsQuery } from '../queries/getAllTagsQuery';
 import { getAdminCtaSelectionQuery } from '../queries/getAdminCtaSelectionQuery';
 import AboutUsSection from './AboutUsSection';
+import BannerSectionMainPage from './BannerSectionMainPage';
 
 const BlogSection = dynamic(() => import('./BlogSection'), { loading: () => <Loading /> });
 const BrojcaniciSection = dynamic(() => import('./BrojcaniciSection'), { loading: () => <Loading /> });
@@ -57,7 +58,7 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
     const queries = [
       getAllBlogsQuery(lang),
       getAllBrojcaniciQuery(lang),
-      getAllUslugeQuery(lang),
+      getAllUslugeQuery(),
       getAllLogotipiPartneraQuery(),
       getAllCarouselBaseQuery(),
       getAllIskustvaKlijenataQuery(lang),
@@ -134,6 +135,7 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
             <BrojcaniciSection pageContent={brojcaniciDataArrayShorthand} lang={lang} />
           )} */}
 
+          <BannerSectionMainPage />
           {uslugeDataArrayShorthand.length > 0 && <UslugeSection pageContent={uslugeDataArrayShorthand} lang={lang} />}
           {/* {logotipiPartneraDataArrayShorthand.length > 0 && (
             <PartnersSection pageContent={logotipiPartneraDataArrayShorthand} />

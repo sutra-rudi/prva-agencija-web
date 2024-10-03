@@ -64,10 +64,10 @@ export const wordmarkBrandline = {
 };
 
 export const logoHorizontal = {
-  'dark-bg': `${basePath}/logo/Logo Horizontal _ on DARK background.svg`,
-  'light-bg': `${basePath}/logo/Logo Horizontal _ on LIGHT background.svg`,
-  'monochrome-dark': `${basePath}/logo/Logo Horizontal _ Monochrome on Dark BG.svg`,
-  'monochrome-light': `${basePath}/logo/Logo Horizontal _ Monochrome on Light BG.svg`,
+  'dark-bg': `${basePath}/LOGO/Logo Horizontal _ on DARK background.svg`,
+  'light-bg': `${basePath}/LOGO/Logo Horizontal _ on LIGHT background.svg`,
+  'monochrome-dark': `${basePath}/LOGO/Logo Horizontal _ Monochrome on Dark BG.svg`,
+  'monochrome-light': `${basePath}/LOGO/Logo Horizontal _ Monochrome on Light BG.svg`,
 };
 
 export const logoVertical = {

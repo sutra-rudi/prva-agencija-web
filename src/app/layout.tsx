@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Poppins, PT_Serif, Cormorant_Garamond } from 'next/font/google';
+import { Poppins } from 'next/font/google';
 import './globals.scss';
 
 import { cookies } from 'next/headers';
@@ -14,7 +14,7 @@ import { getAdminTokensQuery } from './queries/getAdminTokens';
 import { GoogleTagManager, GoogleAnalytics } from '@next/third-parties/google';
 
 import Script from 'next/script';
-import CookieConsentNotification from './components/CookiesNotification';
+// import CookieConsentNotification from './components/CookiesNotification';
 import { getAdminTekstoviManjihKomponentiQuery } from './queries/getAdminTekstoviManjihKomponenti';
 
 const poppins = Poppins({ subsets: ['latin'], weight: ['400', '500', '700'], display: 'swap' });
@@ -23,8 +23,8 @@ import { getBasicSchemaOrgProjectQuery } from './queries/getBasicSchemaOrgProjec
 import dynamic from 'next/dynamic';
 
 export const metadata: Metadata = {
-  title: 'Sutra mastodont',
-  description: 'One repo to rule them all',
+  title: 'Prva Agencija',
+  description: 'Marketing',
 
   icons: [
     {
@@ -277,7 +277,7 @@ export default async function RootLayout({
       className='scrollbar scrollbar-thumb-primary-light dark:scrollbar-thumb-primary-dark  scrollbar-track-primary-dark dark:scrollbar-track-primary-light min-h-screen w-full h-full'
     >
       <body className={`${poppins.className} w-full h-full`}>
-        <CookieConsentNotification pageContent={adminTekstoviShorthand} />
+        {/* <CookieConsentNotification pageContent={adminTekstoviShorthand} /> */}
         {adminTokenDataShorthand.kodoviAdminApi.googleAnalytics && userEnabledAllCookies && (
           <GoogleAnalytics gaId={adminTokenDataShorthand.kodoviAdminApi.googleAnalytics} />
         )}

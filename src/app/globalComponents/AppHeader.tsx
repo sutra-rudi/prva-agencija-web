@@ -7,6 +7,7 @@ import { LuSun as SunIcon, LuMoon as MoonIcon } from 'react-icons/lu';
 import { Hr, Gb, It, De } from 'react-flags-select';
 import Image from 'next/image';
 import { useLocalStorage } from '@uidotdev/usehooks';
+import { logoHorizontal } from '../pathsUtils/mediaImportsDynamic';
 
 const AppHeader = () => {
   const currentPath = usePathname();
@@ -97,18 +98,18 @@ const AppHeader = () => {
   };
 
   return (
-    <nav className='bg-white dark:bg-gray-800 antialiased relative'>
+    <nav className='bg-transparent fixed z-50 w-full h-full top-0'>
       <div className='max-w-screen-xl px-4 mx-auto 2xl:px-0 py-4'>
         <div className='flex items-center justify-between'>
           <div className='flex items-center'>
             <div className='shrink-0'>
-              <a href={`/${currentLang}`} title='' className='w-8 h-8 block'>
+              <a href={`/${currentLang}`} title='' className='block w-52 h-12 relative'>
                 <Image
-                  className='dark:hidden block w-full h-full'
-                  src='https://cms.sutra.hr/wp-content/uploads/2024/06/Sutra-profilna-slika-1.jpg'
+                  className='dark:hidden block w-full h-full object-center object-cover'
+                  src={logoHorizontal['monochrome-dark']}
                   alt=''
-                  width={128}
-                  height={128}
+                  width={200}
+                  height={50}
                 />
 
                 <Image

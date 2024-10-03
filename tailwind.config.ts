@@ -15,7 +15,7 @@ const config: Config = {
         'almost-white': '#F8F7F2',
         'primary-light': '#C3C6B6',
         'secondary-light': '#DDDFD6',
-        'primary-dark': '#192E29',
+        'primary-dark': '#26312B',
         'secondary-dark': '#11201D',
         accent: '#8B9554',
         error: '#FF7A00',
@@ -26,6 +26,8 @@ const config: Config = {
         sutraContactUsTempBg: '#FBFBFB',
         sutraPlaceholderClr: '#8D8D8D',
         sutraRadioBgUnchecked: '#E0E0E0',
+        //PRVA
+        'prva-svijetla-boja': '#C3C6B6',
         ///
         sutraButtonText: '#F0FDF4',
       },

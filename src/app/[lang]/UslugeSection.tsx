@@ -1,11 +1,6 @@
 'use client';
 
 import React from 'react';
-import { getSuffixFromLang } from '../langUtils/getSuffixFromLang';
-import slugify from 'slugify';
-import { slugifyOptions } from '../pathsUtils/slugifyOptions';
-import ServiceCard from '../components/ServiceCard';
-import Script from 'next/script';
 import { PT_Serif } from 'next/font/google';
 import parse from 'html-react-parser';
 import uslugeBG from '../images/usluge-lines-slika.png';

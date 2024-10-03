@@ -28,6 +28,8 @@ const config: Config = {
         sutraRadioBgUnchecked: '#E0E0E0',
         //PRVA
         'prva-svijetla-boja': '#C3C6B6',
+        'prva-tamnozelena-boja': '#26312B',
+        'prva-tamnija-boja': '#818272',
         ///
         sutraButtonText: '#F0FDF4',
       },

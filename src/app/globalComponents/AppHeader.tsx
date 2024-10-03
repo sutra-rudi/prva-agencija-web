@@ -98,7 +98,7 @@ const AppHeader = () => {
   };
 
   return (
-    <nav className='bg-transparent fixed z-50 w-full h-full top-0'>
+    <nav className='bg-transparent absolute z-50 w-full h-full top-0'>
       <div className='max-w-screen-xl px-4 mx-auto 2xl:px-0 py-4'>
         <div className='flex items-center justify-between'>
           <div className='flex items-center'>
@@ -151,7 +151,7 @@ const AppHeader = () => {
             </div>
           </div>
           <div className='flex items-center space-x-4 z-40'>
-            {langs.map((language) => (
+            {/* {langs.map((language) => (
               <button
                 disabled={currentLang === language.lang}
                 key={language.lang}
@@ -160,19 +160,16 @@ const AppHeader = () => {
               >
                 {language.flag}
               </button>
-            ))}
+            ))} */}
 
-            <div
+            {/* <div
               onClick={handleTheme}
               className='z-40 cursor-pointer outline outline-1 rounded-full outline-offset-4 outline-almost-black dark:outline-almost-white transition-all duration-300 ease-linear'
             >
               {theme === 'light' ? <SunIcon size={24} color='#181816' /> : <MoonIcon size={24} color='#F8F7F2' />}
-            </div>
+            </div> */}
             <div className='w-min z-40'>
-              <Hamburger
-                color={theme === 'light' ? '#181816' : '#F8F7F2'}
-                onToggle={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              />
+              <Hamburger color='#C3C6B6' onToggle={() => setIsMobileMenuOpen(!isMobileMenuOpen)} />
             </div>
           </div>
         </div>

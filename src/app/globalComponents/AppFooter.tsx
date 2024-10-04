@@ -32,7 +32,7 @@ export default async function AppFooter() {
       />
       <div className='max-w-screen-xl flex items-center justify-start flex-col'>
         <Image
-          src={logoVertical['monochrome-dark']}
+          src={logoVertical['dark-bg']}
           alt='brand-logo'
           width={128}
           height={128}

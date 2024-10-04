@@ -19,6 +19,8 @@ import { getAdminCtaSelectionQuery } from '../queries/getAdminCtaSelectionQuery'
 import AboutUsSection from './AboutUsSection';
 import BannerSectionMainPage from './BannerSectionMainPage';
 import PrvaAgencijaContactSection from './PrvaAgencijaContact';
+import { getAllNewsQuery } from '../queries/getAllNewsQuery';
+import NewsSection from './NewsSection';
 
 const BlogSection = dynamic(() => import('./BlogSection'), { loading: () => <Loading /> });
 const BrojcaniciSection = dynamic(() => import('./BrojcaniciSection'), { loading: () => <Loading /> });
@@ -69,6 +71,7 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
       getCategoriesQuery(lang),
       getTagsQuery(lang),
       getAdminCtaSelectionQuery(),
+      getAllNewsQuery(lang),
     ];
 
     const results = await Promise.all([
@@ -84,6 +87,7 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
       fetchData(queries[9]),
       fetchData(queries[10]),
       fetchData(queries[11]),
+      fetchData(queries[12], true),
     ]);
 
     const [
@@ -99,21 +103,24 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
       getAllCategories,
       getAllTags,
       getAllAdminCtaSelection,
+      getAllNews,
     ] = results;
 
-    const blogDataArrayShorthand = getAllBlogs?.data?.allBlog?.edges || [];
-    const brojcaniciDataArrayShorthand = getAllBrojcanici?.data?.allBrojcanici?.edges || [];
+    // const blogDataArrayShorthand = getAllBlogs?.data?.allBlog?.edges || [];
+    // const brojcaniciDataArrayShorthand = getAllBrojcanici?.data?.allBrojcanici?.edges || [];
     const uslugeDataArrayShorthand = getAllUsluge?.data?.allUsluge?.edges || [];
-    const logotipiPartneraDataArrayShorthand = getAllPartnersLogos?.data?.logotipiPartneraKlijenata?.edges || [];
+    // const logotipiPartneraDataArrayShorthand = getAllPartnersLogos?.data?.logotipiPartneraKlijenata?.edges || [];
     const baseCarouselDataShorthand = getAllCarouselBase.data.karuselNaslovnica.edges[0].node.photoGallery30pcs || null;
-    const iskustvaKlijenataShorthand = getAllIskustvaKlijenata?.data?.allIskustvaKlijenata?.edges || [];
-    const whyUsDataShorthand = getAllWhyUs?.data?.allWhyus?.edges || [];
-    const obavijestiNaStraniciDataShorthand = getAllObavijesti?.data?.allObavijestiNaStranici?.edges || [];
-    const dokumentiKataloziDataShorthand = getAllDocuments?.data?.dokumentikatalozi?.edges || [];
-    const kategorijeDataShorthand = getAllCategories?.data?.categories?.edges || [];
-    const tagsDataShorthand = getAllTags?.data?.tags?.edges || [];
-    const adminCtaSelection = getAllAdminCtaSelection?.data?.adminSetupArea.edges[0]?.node || null;
-    console.log('KARUZEL', baseCarouselDataShorthand);
+    // const iskustvaKlijenataShorthand = getAllIskustvaKlijenata?.data?.allIskustvaKlijenata?.edges || [];
+    // const whyUsDataShorthand = getAllWhyUs?.data?.allWhyus?.edges || [];
+    // const obavijestiNaStraniciDataShorthand = getAllObavijesti?.data?.allObavijestiNaStranici?.edges || [];
+    // const dokumentiKataloziDataShorthand = getAllDocuments?.data?.dokumentikatalozi?.edges || [];
+    // const kategorijeDataShorthand = getAllCategories?.data?.categories?.edges || [];
+    // const tagsDataShorthand = getAllTags?.data?.tags?.edges || [];
+    // const adminCtaSelection = getAllAdminCtaSelection?.data?.adminSetupArea.edges[0]?.node || null;
+    // console.log('KARUZEL', getAllNews.data.allNovosti.edges);
+
+    const newsDataArrayShorthand = getAllNews.data.allNovosti.edges || [];
     return (
       <Suspense fallback={<Loading />}>
         <main className='relative w-full dark:bg-primary-dark '>
@@ -128,7 +135,9 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
           <BannerSectionMainPage />
           {uslugeDataArrayShorthand.length > 0 && <UslugeSection pageContent={uslugeDataArrayShorthand} lang={lang} />}
 
-          {blogDataArrayShorthand.length > 0 && (
+          {newsDataArrayShorthand.length > 0 && <NewsSection pageContent={newsDataArrayShorthand} lang={lang} />}
+
+          {/* {blogDataArrayShorthand.length > 0 && (
             <BlogSection
               pageContent={blogDataArrayShorthand}
               lang={lang}
@@ -137,7 +146,7 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
               blogCtaKey={adminCtaSelection ? adminCtaSelection.adminGlobalniSelektorCta.blogSekcijaCta[0] : ''}
               blogTableKey={process.env.BLOG_AIRTABLE_CTA_ID!}
             />
-          )}
+          )} */}
 
           <PrvaAgencijaContactSection isPage />
 

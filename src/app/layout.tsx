@@ -17,7 +17,7 @@ import Script from 'next/script';
 // import CookieConsentNotification from './components/CookiesNotification';
 import { getAdminTekstoviManjihKomponentiQuery } from './queries/getAdminTekstoviManjihKomponenti';
 
-const poppins = Poppins({ subsets: ['latin'], weight: ['400', '500', '700'], display: 'swap' });
+const poppins = Poppins({ subsets: ['latin'], weight: ['300', '400', '500', '700'], display: 'swap' });
 
 import { getBasicSchemaOrgProjectQuery } from './queries/getBasicSchemaOrgProjectQuery';
 import dynamic from 'next/dynamic';

@@ -71,7 +71,7 @@ export const logoHorizontal = {
 };
 
 export const logoVertical = {
-  'dark-bg': `${basePath}/logo/Logo vertical _ on DARK background.svg`,
+  'dark-bg': `${basePath}/LOGO/Logo vertical _ on DARK background.svg`,
   'light-bg': `${basePath}/logo/Logo vertical _ on LIGHT background.svg`,
   'monochrome-dark': `${basePath}/LOGO/Logo vertical _ Monochrome on Dark BG.svg`,
   'monochrome-light': `${basePath}/cms_sutra/logo/Logo vertical _ Monochrome on Light BG.svg`,

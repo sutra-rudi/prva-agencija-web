@@ -56,8 +56,6 @@ interface UslugeSectionInterface {
 const UslugeSection = ({ pageContent, lang }: UslugeSectionInterface) => {
   // const schemaOrgData = generateServicesSchemaOrg(pageContent, lang);
 
-  console.log('PAGE CONTENT', pageContent);
-
   return (
     <section className='w-full bg-prva-svijetla-boja relative pt-16 pb-20'>
       <Image

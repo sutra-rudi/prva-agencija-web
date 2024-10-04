@@ -6,11 +6,9 @@ interface CarouselBase {
 const CarouselBase = ({ imageArray }: CarouselBase) => {
   const prepGallery = Object.values(imageArray);
 
-  console.log('PPPP', prepGallery);
-
   return (
     <section>
-      <Marquee direction='left'>
+      <Marquee direction='left' speed={148}>
         {prepGallery.map((galItem: any) => (
           <div key={galItem.node.id} className='w-[400px] h-[300px] relative'>
             <Image

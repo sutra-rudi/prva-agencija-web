@@ -38,7 +38,7 @@ export default async function AppFooter() {
           height={128}
           className='object-cover object-center block mb-14'
         />
-        <p className='text-base text-prva-tamnija-boja'>
+        <p className='text-base text-prva-tamnija-boja xl:text-nowrap text-balance'>
           PRVA AGENCIJA, obrt za odnose s javnošću i djelatnost priopćivanja, vl. Andrea Vitlov Kurtin, Kali, Ulica sv.
           Lovre 74
         </p>

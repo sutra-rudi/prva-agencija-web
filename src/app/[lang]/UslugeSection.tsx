@@ -78,7 +78,7 @@ const UslugeSection = ({ pageContent, lang }: UslugeSectionInterface) => {
       </div>
 
       <div className='w-1/2 h-px mx-auto bg-prva-tamna-boja mt-10'></div>
-      <div className='max-w-screen-xl mx-auto my-8 grid grid-cols-2 gap-14'>
+      <div className='max-w-screen-xl mx-auto my-8 grid lg:grid-cols-2 grid-cols-1 gap-14'>
         {pageContent.map((cont: any) => {
           const titleShorthand = cont.node.uslugeSadrzajHr.sadrzajGrupeUsluga;
           const contentShorthand = titleShorthand.sadrzajusluge;

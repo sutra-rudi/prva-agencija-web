@@ -26,7 +26,7 @@ const NewsSection = ({ pageContent, lang }: NewsSectionInterface) => {
       />
       <h2 className={`${PT.className} text-5xl mx-auto text-center pt-20 pb-9 `}>Izdvojeni projekti</h2>
 
-      <div className='w-full max-w-screen-2xl mx-auto flex items-start justify-center gap-6 '>
+      <div className='w-full max-w-screen-2xl mx-auto flex lg:items-start items-center justify-center  gap-6 xl:flex-nowrap flex-wrap'>
         {pageContent.map((cont: any) => {
           const baseShorthand = cont.node;
           const categoryShorthand = baseShorthand.introNews?.kategorija?.edges[0].node.name || 'No category';
@@ -34,23 +34,31 @@ const NewsSection = ({ pageContent, lang }: NewsSectionInterface) => {
           const introTextShorthand = baseShorthand?.sadrzajHrFields?.kratkiUvodniTekstSadrzajHr || 'No intro';
           const thumbnailImageShorthand = baseShorthand?.introNews?.thumbnail?.node?.sourceUrl;
           const readTime = readingTime(introTextShorthand);
-          // console.log('R TIME', readTime);
+
           return (
-            <article key={baseShorthand.id} className='md:max-w-[336px]'>
+            <article key={baseShorthand.id} className='xl:max-w-[336px] md:max-w-[256px] w-full md:block flex shrink-0'>
               <Image
                 src={thumbnailImageShorthand}
                 alt='News card thumbnail'
                 width={336}
                 height={302}
-                className='object-cover object-center block'
+                className='object-cover object-center block md:w-auto md:h-auto w-1/2 h-1/2'
                 loading='lazy'
               />
-              <span className='mt-8 block text-xl text-prva-tamnija-boja font-light'>{categoryShorthand}</span>
-              <h3 className={`${PT.className} text-4xl text-prva-tamna-boja`}>{titleShorthand}</h3>
-              <div className='mt-5 prose prose-p:text-lg prose-p:leading-7'>{parse(introTextShorthand)}</div>
-              <div className='w-full text-xs flex items-center justify-end gap-1 mt-5'>
-                <ClockIcon />
-                <span>{readTime.text}</span>
+              <div className=''>
+                <span className='mt-8 block lg:text-xl text-lg text-prva-tamnija-boja font-light'>
+                  {categoryShorthand}
+                </span>
+                <h3 className={`${PT.className} lg:text-4xl md:text-2xl text-lg text-prva-tamna-boja`}>
+                  {titleShorthand}
+                </h3>
+                <div className='mt-5 prose lg:prose-p:text-lg prose-p:text-base lg:prose-p:leading-7 prose-p:leading-5 md:block hidden'>
+                  {parse(introTextShorthand)}
+                </div>
+                <div className='w-full text-xs  items-center justify-end gap-1 mt-5 md:flex hidden'>
+                  <ClockIcon />
+                  <span>{readTime.text}</span>
+                </div>
               </div>
             </article>
           );

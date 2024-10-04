@@ -92,7 +92,7 @@ export const brandPattern = {
 };
 
 export const logoSymbol = {
-  'dark-bg': `${basePath}/logo/Logo SYMBOL _ on DARK background.svg`,
+  'dark-bg': `${basePath}/LOGO/Logo SYMBOL _ on DARK background.svg`,
   'light-bg': `${basePath}/logo/Logo SYMBOL _ on LIGHT background.svg`,
   'monochrome-dark': `${basePath}/logo/Logo SYMBOL _ Monochrome on Dark BG.svg`,
   'monochrome-light': `${basePath}/logo/Logo SYMBOL _ Monochrome on Light BG.svg`,

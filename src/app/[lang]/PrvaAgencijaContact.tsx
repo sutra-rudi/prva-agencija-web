@@ -4,7 +4,6 @@ import { useForm } from 'react-hook-form';
 import { PT_Serif } from 'next/font/google';
 import toast from 'react-hot-toast';
 
-// import { SutraButtonBase, SutraButtonOutlined } from './SutraButton';
 import { useFormspark } from '@formspark/use-formspark';
 const PT = PT_Serif({ subsets: ['latin'], weight: ['400'], style: ['italic'] });
 
@@ -118,7 +117,7 @@ const PrvaAgencijaContactSection = () => {
         <div className='w-full flex items-center justify-center'>
           <button
             type='submit'
-            className='lg:w-1/2 mx-auto w-full bg-prva-tamna-boja text-prva-svijetla-boja py-4 transition-all duration-200 ease-out cursor-pointer hover:bg-prva-tamnozelena-boja hover:text-almost-white hover:scale-90'
+            className='lg:w-1/2 mx-auto w-full bg-prva-tamna-boja  py-4 transition-all duration-200 ease-out cursor-pointer hover:bg-prva-tamnozelena-boja hover:text-almost-white hover:scale-90 font-medium text-almost-white'
           >
             Pošalji poruku
           </button>

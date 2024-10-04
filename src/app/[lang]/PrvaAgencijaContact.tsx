@@ -40,7 +40,7 @@ const PrvaAgencijaContactSection = () => {
 
   return (
     <section className={`w-full pb-20`}>
-      <h2 className={`${PT.className} text-5xl mx-auto text-center pt-20 pb-9 `}>Kontakt</h2>
+      <h2 className={`${PT.className} xl:text-5xl lg:text-4xl text-3xl mx-auto text-center pt-20 pb-9 `}>Kontakt</h2>
 
       <form onSubmit={handleSubmit(onSubmit, onError)} className='w-full max-w-screen-sm z-40 mx-auto'>
         <div className='w-full flex items-center justify-start gap-4'>

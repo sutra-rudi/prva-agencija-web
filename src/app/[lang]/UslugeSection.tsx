@@ -57,7 +57,7 @@ const UslugeSection = ({ pageContent, lang }: UslugeSectionInterface) => {
   // const schemaOrgData = generateServicesSchemaOrg(pageContent, lang);
 
   return (
-    <section className='w-full bg-prva-svijetla-boja relative pt-16 pb-20'>
+    <section className='w-full bg-prva-svijetla-boja relative pt-16 pb-20  px-4'>
       <Image
         src={uslugeBG}
         alt='art lines'
@@ -66,7 +66,7 @@ const UslugeSection = ({ pageContent, lang }: UslugeSectionInterface) => {
         className='object-cover object-center opacity-10 pointer-events-none select-none'
       />
       <div className='w-full max-w-screen-xl mx-auto text-center '>
-        <h2 className={`${PT.className} text-5xl `}>Usluge</h2>
+        <h2 className={`${PT.className} xl:text-5xl lg:text-4xl text-3xl`}>Usluge</h2>
         <p className='max-w-prose text-prva-tamnozelena-boja text-base pt-6 mx-auto'>
           Ako želite da se čuje za Vaše proizvode, usluge ili za vrijedne projekte na kojima radite, potrebno vam je
           bolje i kvalitetnije online prisustvo i treba Vam pomoć u promociji i komunikaciji s medijima i javnosti-
@@ -78,13 +78,18 @@ const UslugeSection = ({ pageContent, lang }: UslugeSectionInterface) => {
       </div>
 
       <div className='w-1/2 h-px mx-auto bg-prva-tamna-boja mt-10'></div>
-      <div className='max-w-screen-xl mx-auto my-8 grid lg:grid-cols-2 grid-cols-1 gap-14'>
+      <div className='max-w-screen-xl mx-auto my-8 grid lg:grid-cols-2 grid-cols-1 lg:place-items-start place-items-center gap-14'>
         {pageContent.map((cont: any) => {
           const titleShorthand = cont.node.uslugeSadrzajHr.sadrzajGrupeUsluga;
           const contentShorthand = titleShorthand.sadrzajusluge;
           return (
-            <article key={cont.node.id} className='flex flex-col gap-2 items-start justify-start'>
-              <h3 className={`${PT.className} text-h5_xs text-prva-tamnozelena-boja`}>{titleShorthand.nazivusluge}</h3>
+            <article
+              key={cont.node.id}
+              className='flex flex-col gap-2 items-start justify-start md:text-left text-center'
+            >
+              <h3 className={`${PT.className} text-h5_xs text-prva-tamnozelena-boja w-full md:text-left text-center`}>
+                {titleShorthand.nazivusluge}
+              </h3>
               <div className='prose prose-p:text-base prose-p:text-prva-tamnozelena-boja'>
                 {parse(contentShorthand.sadrzajPasusa)}
               </div>

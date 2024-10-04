@@ -17,14 +17,16 @@ const PT = PT_Serif({ subsets: ['latin'], weight: ['400'], style: ['italic'] });
 const NewsSection = ({ pageContent, lang }: NewsSectionInterface) => {
   // console.log('PAGI CONT NEWS', pageContent);
   return (
-    <section className='w-full min-h-screen relative'>
+    <section className='w-full min-h-screen relative px-4'>
       <Image
         src={sectionBgWhite}
         alt='page-background image'
         fill
         className='-z-[1] block object-cover object-center pointer-events-none select-none'
       />
-      <h2 className={`${PT.className} text-5xl mx-auto text-center pt-20 pb-9 `}>Izdvojeni projekti</h2>
+      <h2 className={`${PT.className} xl:text-5xl lg:text-4xl text-3xl mx-auto text-center pt-20 pb-9 `}>
+        Izdvojeni projekti
+      </h2>
 
       <div className='w-full max-w-screen-2xl mx-auto flex lg:items-start items-center justify-center  gap-6 xl:flex-nowrap flex-wrap'>
         {pageContent.map((cont: any) => {
@@ -36,7 +38,10 @@ const NewsSection = ({ pageContent, lang }: NewsSectionInterface) => {
           const readTime = readingTime(introTextShorthand);
 
           return (
-            <article key={baseShorthand.id} className='xl:max-w-[336px] md:max-w-[256px] w-full md:block flex shrink-0'>
+            <article
+              key={baseShorthand.id}
+              className='xl:max-w-[336px] md:max-w-[256px] w-full md:block flex shrink-0 gap-5'
+            >
               <Image
                 src={thumbnailImageShorthand}
                 alt='News card thumbnail'
@@ -46,13 +51,13 @@ const NewsSection = ({ pageContent, lang }: NewsSectionInterface) => {
                 loading='lazy'
               />
               <div className=''>
-                <span className='mt-8 block lg:text-xl text-lg text-prva-tamnija-boja font-light'>
+                <span className='lg:mt-8 mt-6 block lg:text-xl md:text-lg text-base text-prva-tamnija-boja font-light'>
                   {categoryShorthand}
                 </span>
                 <h3 className={`${PT.className} lg:text-4xl md:text-2xl text-lg text-prva-tamna-boja`}>
                   {titleShorthand}
                 </h3>
-                <div className='mt-5 prose lg:prose-p:text-lg prose-p:text-base lg:prose-p:leading-7 prose-p:leading-5 md:block hidden'>
+                <div className='lg:mt-5 mt-3 prose lg:prose-p:text-lg prose-p:text-base lg:prose-p:leading-7 prose-p:leading-5 md:block hidden'>
                   {parse(introTextShorthand)}
                 </div>
                 <div className='w-full text-xs  items-center justify-end gap-1 mt-5 md:flex hidden'>

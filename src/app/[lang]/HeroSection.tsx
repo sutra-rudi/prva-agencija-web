@@ -23,11 +23,11 @@ const HeroSection = () => {
   return (
     <section className='bg-white dark:bg-gray-900 h-screen w-full'>
       <div className='relative w-full h-full bg-primary-dark flex items-center justify-center'>
-        <div className='flex flex-col gap-4 items-center justify-center'>
+        <div className='flex flex-col gap-4 items-center justify-center lg:px-0 px-4'>
           <h1
-            className={`${CormoGara.className} text-prva-svijetla-boja xl:text-5xl lg:text-4xl md:text-3xl text-2xl whitespace-pre-wrap text-center`}
+            className={`${CormoGara.className} text-prva-svijetla-boja xl:text-5xl text-4xl  whitespace-pre-wrap text-center`}
           >{`„Advertising is saying you're good.\nPR is getting someone else to say you're good.“ `}</h1>
-          <p className='text-prva-svijetla-boja text-h5_xs'>Jean-Louis Gassée</p>
+          <p className='text-prva-svijetla-boja lg:text-h5_xs text-lg'>Jean-Louis Gassée</p>
         </div>
         <Image
           src={prvaAgencijaHeroBg}

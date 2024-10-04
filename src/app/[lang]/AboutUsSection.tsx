@@ -17,7 +17,7 @@ const textBlockSecond = `Napravite s nama PRvi korak ka željenom imidžu. Vodit
 
 const AboutUsSection = () => {
   return (
-    <section className='w-full h-full min-h-screen flex items-center justify-center relative flex-wrap bg-white'>
+    <section className='w-full h-full min-h-screen flex items-center justify-center relative flex-wrap bg-white '>
       <Image
         src={teksturaPaper}
         alt='background texture'
@@ -26,31 +26,38 @@ const AboutUsSection = () => {
       />
       <div className='kontejner w-full h-full flex items-center justify-center max-w-screen-xl mx-auto z-[2] flex-col'>
         <div className='kontejnermali w-full h-full flex justify-center gap-20  lg:flex-nowrap flex-wrap'>
-          <div className='max-w-[55ch] flex flex-col items-start justify-start gap-6'>
-            <h2 className={`${PT.className} xl:text-5xl lg:text-4xl text-3xl text-prva-tamnozelena-boja`}>O nama</h2>
-            <p className='text-base text-prva-tamnozelena-boja'>{textBlockFirst}</p>
-            <blockquote className={`${PT.className} lg:text-2xl md:text-xl text-lg text-prva-tamnija-boja`}>
+          <div className='max-w-[55ch] flex flex-col items-start justify-start gap-6 lg:px-0 px-4 lg:pt-0 pt-6'>
+            <h2 className={`${PT.className} xl:text-5xl lg:text-4xl text-3xl text-prva-tamnozelena-boja `}>O nama</h2>
+            <p className='lg:text-lg text-base text-prva-tamnozelena-boja'>{textBlockFirst}</p>
+            <blockquote className={`${PT.className} lg:text-2xl text-xl  text-prva-tamnija-boja `}>
               <p>{quoteText}</p>
             </blockquote>
-            <p className='text-base text-prva-tamnozelena-boja'>{textBlockSecond}</p>
-            <SutraButtonBase size='normal' innerText='Kontaktiraj nas' />
+            <p className='lg:text-lg text-base text-prva-tamnozelena-boja'>{textBlockSecond}</p>
+
+            <a href='/' className='bg-prva-tamnija-boja text-base text-almost-white px-9 py-4'>
+              <button role='button' type='button' className='outline-none border-none'>
+                Kontaktiraj nas
+              </button>
+            </a>
           </div>
-          <div className='relative h-full '>
+          <div className='relative h-full lg:w-auto w-full lg:block flex justify-center items-end'>
             <Image
               src={prvaCEO}
               width={456}
               height={551}
               alt='Prva agencija CEO'
-              className='object-cover object-center z-20 block relative shrink-0'
+              className='object-cover object-center z-20 block relative shrink-0 lg:w-auto md:w-[350px] w-[283px] h-[350px] bottom-0'
             />
 
-            <Image
-              src={prvaCEOSec}
-              width={353}
-              height={530}
-              alt='Prva agencija CEO'
-              className='object-cover object-center absolute -top-[20%] -right-1/2 z-10 2xl:block hidden'
-            />
+            <div className='lg:block flex items-end justify-end '>
+              <Image
+                src={prvaCEOSec}
+                width={353}
+                height={530}
+                alt='Prva agencija CEO'
+                className='object-cover object-center lg:absolute relative lg:-top-[20%] lg:-right-14  z-10 lg:w-auto w-[278px] lg:h-auto h-[431px] '
+              />
+            </div>
 
             <Image
               src={logoSymbol['dark-bg']}

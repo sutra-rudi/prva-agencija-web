@@ -148,8 +148,6 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
             />
           )} */}
 
-          <PrvaAgencijaContactSection isPage />
-
           {baseCarouselDataShorthand && <CarouselBase imageArray={baseCarouselDataShorthand} />}
 
           {/* {logotipiPartneraDataArrayShorthand.length > 0 && (

@@ -5,6 +5,7 @@ import sectionBgWhite from '../images/blog-background-bila.png';
 import { readingTime } from 'reading-time-estimator';
 import { FiClock as ClockIcon } from 'react-icons/fi';
 import { LiaArrowRightSolid as ArrowIcon } from 'react-icons/lia';
+import PrvaAgencijaContactSection from './PrvaAgencijaContact';
 
 interface NewsSectionInterface {
   pageContent: any;
@@ -62,6 +63,8 @@ const NewsSection = ({ pageContent, lang }: NewsSectionInterface) => {
           <ArrowIcon />
         </div>
       </div>
+
+      <PrvaAgencijaContactSection />
     </section>
   );
 };

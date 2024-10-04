@@ -9,6 +9,19 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      keyframes: {
+        'fade-in-basic': {
+          '0%': {
+            opacity: '0',
+          },
+          '100%': {
+            opacity: '1',
+          },
+        },
+      },
+      animation: {
+        easeFadeBasic: 'fade-in-basic 350ms ease-in-out forwards',
+      },
       colors: {
         'brand-clr': '#4E4848',
         'almost-black': '#181816',

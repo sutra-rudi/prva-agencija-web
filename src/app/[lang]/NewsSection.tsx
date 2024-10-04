@@ -70,8 +70,8 @@ const NewsSection = ({ pageContent, lang }: NewsSectionInterface) => {
         })}
       </div>
 
-      <div className='max-w-screen-2xl w-full mx-auto flex items-center justify-end px-14 mt-5'>
-        <div className='flex items-center gap-3 text-prva-tamnozelena-boja text-lg'>
+      <div className='max-w-screen-2xl w-full mx-auto flex items-center justify-end lg:px-14 mt-5'>
+        <div className='flex items-center gap-3 text-prva-tamnozelena-boja lg:text-lg md:text-base text-small'>
           <p className={`${PT.className}`}>Pogledaj sve projekte</p>
           <ArrowIcon />
         </div>

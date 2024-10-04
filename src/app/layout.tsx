@@ -230,7 +230,7 @@ export default async function RootLayout({
     }
   }
 
-  const adminTekstoviShorthand = await fetchAdminTekstoviManjihKomponenti();
+  // const adminTekstoviShorthand = await fetchAdminTekstoviManjihKomponenti();
 
   const getUserCookieConsent = cookies().get('@sutra-cookies-consent')?.value;
 
@@ -274,7 +274,7 @@ export default async function RootLayout({
   return (
     <html
       lang={lang}
-      className='scrollbar scrollbar-thumb-prva-tamnozelena-boja dark:scrollbar-thumb-primary-dark  scrollbar-track-primary-dark dark:scrollbar-track-primary-light min-h-screen w-full h-full'
+      className='scrollbar scrollbar-thumb-prva-tamnozelena-boja dark:scrollbar-thumb-primary-dark  scrollbar-track-prva-svijetla-boja dark:scrollbar-track-primary-light min-h-screen w-full h-full'
     >
       <body className={`${poppins.className} w-full h-full`}>
         {/* <CookieConsentNotification pageContent={adminTekstoviShorthand} /> */}

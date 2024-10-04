@@ -38,12 +38,12 @@ export default async function AppFooter() {
           height={128}
           className='object-cover object-center block mb-14'
         />
-        <p className='text-base text-prva-tamnija-boja xl:text-nowrap text-balance'>
+        <p className='lg:text-base text-sm text-prva-tamnija-boja xl:text-nowrap text-balance lg:text-left text-center'>
           PRVA AGENCIJA, obrt za odnose s javnošću i djelatnost priopćivanja, vl. Andrea Vitlov Kurtin, Kali, Ulica sv.
           Lovre 74
         </p>
 
-        <p className='text-base text-prva-tamnija-boja'>web by sutra.hr</p>
+        <p className='text-base lg:text-left text-center text-prva-tamnija-boja mt-6'>web by sutra.hr</p>
       </div>
     </footer>
   );

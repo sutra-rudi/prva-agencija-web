@@ -3,7 +3,6 @@ export const maxDuration = 60;
 import { Suspense } from 'react';
 import dynamic from 'next/dynamic';
 import Loading from '../loading';
-
 import { getAllBlogsQuery } from '../queries/getAllBlogsQuery';
 import { getAllBrojcaniciQuery } from '../queries/getAllBrojcaniciQuery';
 import { getAllUslugeQuery } from '../queries/getAllUslugeQuery';
@@ -18,20 +17,19 @@ import { getTagsQuery } from '../queries/getAllTagsQuery';
 import { getAdminCtaSelectionQuery } from '../queries/getAdminCtaSelectionQuery';
 import AboutUsSection from './AboutUsSection';
 import BannerSectionMainPage from './BannerSectionMainPage';
-import PrvaAgencijaContactSection from './PrvaAgencijaContact';
 import { getAllNewsQuery } from '../queries/getAllNewsQuery';
 import NewsSection from './NewsSection';
 
-const BlogSection = dynamic(() => import('./BlogSection'), { loading: () => <Loading /> });
-const BrojcaniciSection = dynamic(() => import('./BrojcaniciSection'), { loading: () => <Loading /> });
+// const BlogSection = dynamic(() => import('./BlogSection'), { loading: () => <Loading /> });
+// const BrojcaniciSection = dynamic(() => import('./BrojcaniciSection'), { loading: () => <Loading /> });
 const UslugeSection = dynamic(() => import('./UslugeSection'), { loading: () => <Loading /> });
-const PartnersSection = dynamic(() => import('./PartnersSection'), { loading: () => <Loading /> });
+// const PartnersSection = dynamic(() => import('./PartnersSection'), { loading: () => <Loading /> });
 const CarouselBase = dynamic(() => import('./CarouselBase'), { loading: () => <Loading /> });
-const TestimonialsSection = dynamic(() => import('./TestimonialsSection'), { loading: () => <Loading /> });
-const WhyUsSection = dynamic(() => import('./WhyUsSection'), { loading: () => <Loading /> });
-const DocumentsCatalogsSection = dynamic(() => import('./DocumentsCatalogsSection'), { loading: () => <Loading /> });
-const HeroSection = dynamic(() => import('./HeroSection'), { ssr: false });
-const NewsTrack = dynamic(() => import('../components/NewsTrack'), { loading: () => <Loading /> });
+// const TestimonialsSection = dynamic(() => import('./TestimonialsSection'), { loading: () => <Loading /> });
+// const WhyUsSection = dynamic(() => import('./WhyUsSection'), { loading: () => <Loading /> });
+// const DocumentsCatalogsSection = dynamic(() => import('./DocumentsCatalogsSection'), { loading: () => <Loading /> });
+const HeroSection = dynamic(() => import('./HeroSection'), { ssr: false, loading: () => <Loading /> });
+// const NewsTrack = dynamic(() => import('../components/NewsTrack'), { loading: () => <Loading /> });
 
 async function fetchData(query: any, noCache: boolean = false) {
   try {
@@ -124,18 +122,32 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
     return (
       <Suspense fallback={<Loading />}>
         <main className='relative w-full dark:bg-primary-dark '>
-          <HeroSection />
+          <Suspense>
+            <HeroSection />
+          </Suspense>
 
-          <AboutUsSection />
+          <Suspense>
+            <AboutUsSection />
+          </Suspense>
 
           {/* {brojcaniciDataArrayShorthand.length > 0 && (
             <BrojcaniciSection pageContent={brojcaniciDataArrayShorthand} lang={lang} />
           )} */}
 
-          <BannerSectionMainPage />
-          {uslugeDataArrayShorthand.length > 0 && <UslugeSection pageContent={uslugeDataArrayShorthand} lang={lang} />}
+          <Suspense>
+            <BannerSectionMainPage />
+          </Suspense>
+          {uslugeDataArrayShorthand.length > 0 && (
+            <Suspense>
+              <UslugeSection pageContent={uslugeDataArrayShorthand} lang={lang} />
+            </Suspense>
+          )}
 
-          {newsDataArrayShorthand.length > 0 && <NewsSection pageContent={newsDataArrayShorthand} lang={lang} />}
+          {newsDataArrayShorthand.length > 0 && (
+            <Suspense>
+              <NewsSection pageContent={newsDataArrayShorthand} lang={lang} />
+            </Suspense>
+          )}
 
           {/* {blogDataArrayShorthand.length > 0 && (
             <BlogSection
@@ -148,7 +160,11 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
             />
           )} */}
 
-          {baseCarouselDataShorthand && <CarouselBase imageArray={baseCarouselDataShorthand} />}
+          {baseCarouselDataShorthand && (
+            <Suspense>
+              <CarouselBase imageArray={baseCarouselDataShorthand} />
+            </Suspense>
+          )}
 
           {/* {logotipiPartneraDataArrayShorthand.length > 0 && (
             <PartnersSection pageContent={logotipiPartneraDataArrayShorthand} />

@@ -98,7 +98,7 @@ const AppHeader = () => {
   };
 
   return (
-    <nav className='bg-transparent absolute z-50 w-full h-full top-0'>
+    <nav className='bg-transparent absolute z-50 w-full top-0'>
       <div className='max-w-screen-xl px-4 mx-auto 2xl:px-0 pb-4 pt-12'>
         <div className='flex items-center justify-between'>
           <div className='flex items-center'>

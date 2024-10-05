@@ -54,7 +54,7 @@ const PrvaAgencijaContactSection = () => {
             <input
               type='text'
               id='name'
-              className={`block p-2.5 w-full text-sm text-prva-tamna-boja bg-transparent  rounded-sutraContactFormButton  outline-none border-none outline-1 outline-prva-tamna-boja active:outline-prva-svijetla-boja focus:outline-prva-svijetla-boja focus:ring-0 active:ring-0 focus:placeholder:opacity-0 transition-all ease-in-out placeholder:transition-all placeholder:ease-in-out ${
+              className={`block p-2.5 w-full text-sm text-prva-tamna-boja bg-transparent    outline-none border-none outline-1 outline-prva-svijetla-boja active:outline-prva-tamnozelena-boja focus:outline-prva-tamnozelena-boja focus:ring-0 active:ring-0 focus:placeholder:opacity-0 transition-all ease-in-out placeholder:transition-all placeholder:ease-in-out ${
                 errors.name && 'border-red-500'
               }`}
               placeholder='Ivan Horvat'
@@ -76,7 +76,7 @@ const PrvaAgencijaContactSection = () => {
             <input
               type='email'
               id='email'
-              className={`block p-2.5 w-full text-sm text-prva-tamna-boja bg-transparent  rounded-sutraContactFormButton  outline-none border-none outline-1 outline-prva-tamna-boja active:outline-prva-svijetla-boja focus:outline-prva-svijetla-boja focus:ring-0 active:ring-0 focus:placeholder:opacity-0 transition-all ease-in-out placeholder:transition-all placeholder:ease-in-out ${
+              className={`block p-2.5 w-full text-sm text-prva-tamna-boja bg-transparent    outline-none border-none outline-1 outline-prva-svijetla-boja active:outline-prva-tamnozelena-boja focus:outline-prva-tamnozelena-boja focus:ring-0 active:ring-0 focus:placeholder:opacity-0 transition-all ease-in-out placeholder:transition-all placeholder:ease-in-out ${
                 errors.name && 'border-red-500'
               }`}
               placeholder='vašeime@mail.com'
@@ -103,7 +103,7 @@ const PrvaAgencijaContactSection = () => {
           <textarea
             id='message'
             rows={4}
-            className={`block p-2.5 w-full text-sm text-prva-tamna-boja bg-transparent  rounded-sutraContactFormButton  outline-none border-none outline-1 outline-prva-tamna-boja active:outline-prva-svijetla-boja focus:outline-prva-svijetla-boja focus:ring-0 active:ring-0 focus:placeholder:opacity-0 transition-all ease-in-out placeholder:transition-all placeholder:ease-in-out ${
+            className={`block p-2.5 w-full text-sm text-prva-tamna-boja bg-transparent    outline-none border-none outline-1 outline-prva-svijetla-boja active:outline-prva-tamnozelena-boja focus:outline-prva-tamnozelena-boja focus:ring-0 active:ring-0 focus:placeholder:opacity-0 transition-all ease-in-out placeholder:transition-all placeholder:ease-in-out ${
               errors.name && 'border-red-500'
             }`}
             placeholder='Napišite nam poruku'
@@ -117,7 +117,7 @@ const PrvaAgencijaContactSection = () => {
         <div className='w-full flex items-center justify-center'>
           <button
             type='submit'
-            className='lg:w-1/2 mx-auto w-full bg-prva-tamna-boja  py-4 transition-all duration-200 ease-out cursor-pointer hover:bg-prva-tamnozelena-boja hover:text-almost-white hover:scale-90 font-medium text-almost-white'
+            className='w-full bg-prva-tamna-boja  py-4 transition-all duration-200 ease-out cursor-pointer hover:bg-prva-tamnozelena-boja hover:text-almost-white hover:scale-95 font-medium text-almost-white'
           >
             Pošalji poruku
           </button>

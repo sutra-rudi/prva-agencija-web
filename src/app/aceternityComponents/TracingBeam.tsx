@@ -39,7 +39,7 @@ export const TracingBeam = ({ children, className }: { children: React.ReactNode
           animate={{
             boxShadow: scrollYProgress.get() > 0 ? 'none' : 'rgba(0, 0, 0, 0.24) 0px 3px 8px',
           }}
-          className='ml-[27px] h-4 w-4 rounded-full border border-netural-200 shadow-sm flex items-center justify-center'
+          className='ml-[27px] h-0 w-0 '
         >
           <motion.div
             transition={{
@@ -50,7 +50,7 @@ export const TracingBeam = ({ children, className }: { children: React.ReactNode
               backgroundColor: scrollYProgress.get() > 0 ? 'white' : '#8B9554',
               borderColor: scrollYProgress.get() > 0 ? 'white' : '#8B9554',
             }}
-            className='h-2 w-2 rounded-full border border-neutral-300 bg-white'
+            className='h-0 w-0 '
           />
         </motion.div>
         <svg viewBox={`0 0 20 ${svgHeight}`} width='20' height={svgHeight} className='ml-4 block' aria-hidden='true'>

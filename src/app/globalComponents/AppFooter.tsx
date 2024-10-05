@@ -22,7 +22,7 @@ export default async function AppFooter() {
   // const socialLinks: [string, string][] = Object.entries(dataShorthand.povezniceDrustvene);
 
   return (
-    <footer className='p-4 bg-prva-tamnozelena-boja min-h-96 flex items-center justify-center relative'>
+    <footer className='px-4 py-24 bg-prva-tamnozelena-boja min-h-96 flex items-center justify-center relative'>
       <Image
         src={uslugeBG}
         alt='art lines'
@@ -43,7 +43,7 @@ export default async function AppFooter() {
           Lovre 74
         </p>
 
-        <p className='text-base lg:text-left text-center text-prva-tamnija-boja mt-6'>web by sutra.hr</p>
+        <p className='text-sm lg:text-left text-center text-prva-tamnija-boja mt-12'>web by sutra.hr</p>
       </div>
     </footer>
   );

@@ -11,6 +11,8 @@ import PrvaAgencijaContactSection from './PrvaAgencijaContact';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import slugify from 'slugify';
+import { slugifyOptions } from '../pathsUtils/slugifyOptions';
 
 interface NewsSectionInterface {
   pageContent: any;
@@ -43,59 +45,20 @@ const NewsSection = ({ pageContent, lang }: NewsSectionInterface) => {
           const readTime = readingTime(introTextShorthand);
 
           return (
-            <article
+            <a
               key={baseShorthand.id}
-              className='2xl:max-w-[336px] lg:max-w-[256px] w-full md:block flex shrink-0 gap-5'
+              href={`/${lang}/news/${slugify(`${titleShorthand}`, slugifyOptions) + `-${baseShorthand.id}`}`}
             >
-              <Image
-                src={thumbnailImageShorthand}
-                alt='News card thumbnail'
-                width={336}
-                height={302}
-                className='object-cover object-center block md:w-auto md:h-auto w-1/2 h-1/2'
-                loading='lazy'
-              />
-              <div className=''>
-                <span className='lg:mt-8 mt-6 block lg:text-xl md:text-lg text-base text-prva-tamnija-boja font-light'>
-                  {categoryShorthand}
-                </span>
-                <h3 className={`${PT.className} lg:text-3xl md:text-2xl text-lg text-prva-tamna-boja`}>
-                  {titleShorthand}
-                </h3>
-                <div className='lg:mt-5 mt-3 prose lg:prose-p:text-base prose-p:text-sm lg:prose-p:leading-5 prose-p:leading-3 md:block hidden'>
-                  {parse(introTextShorthand)}
-                </div>
-                <div className='w-full text-xs  items-center justify-end gap-1 mt-5 md:flex hidden'>
-                  <ClockIcon />
-                  <span>{readTime.text}</span>
-                </div>
-              </div>
-            </article>
-          );
-        })}
-      </div>
-
-      <div className='w-full max-w-screen-2xl mx-auto prva-custom-news-break:hidden block'>
-        <Slider infinite slidesToShow={1} speed={250} slidesToScroll={1} arrows={false} dots draggable>
-          {pageContent.map((cont: any) => {
-            const baseShorthand = cont.node;
-            const categoryShorthand = baseShorthand.introNews?.kategorija?.edges[0].node.name || 'No category';
-            const titleShorthand = baseShorthand?.sadrzajHrFields?.naslovSadrzajHr || 'No title';
-            const introTextShorthand = baseShorthand?.sadrzajHrFields?.kratkiUvodniTekstSadrzajHr || 'No intro';
-            const thumbnailImageShorthand = baseShorthand?.introNews?.thumbnail?.node?.sourceUrl;
-            const readTime = readingTime(introTextShorthand);
-
-            return (
-              <article key={baseShorthand.id} className='w-full h-full !flex !gap-5'>
+              <article className='2xl:max-w-[336px] lg:max-w-[256px] w-full md:block flex shrink-0 gap-5'>
                 <Image
                   src={thumbnailImageShorthand}
                   alt='News card thumbnail'
                   width={336}
                   height={302}
-                  className='object-cover object-center max-w-[60%]'
+                  className='object-cover object-center block md:w-auto md:h-auto w-1/2 h-1/2'
                   loading='lazy'
                 />
-                <div className='w-full'>
+                <div className=''>
                   <span className='lg:mt-8 mt-6 block lg:text-xl md:text-lg text-base text-prva-tamnija-boja font-light'>
                     {categoryShorthand}
                   </span>
@@ -111,6 +74,52 @@ const NewsSection = ({ pageContent, lang }: NewsSectionInterface) => {
                   </div>
                 </div>
               </article>
+            </a>
+          );
+        })}
+      </div>
+
+      <div className='w-full max-w-screen-2xl mx-auto prva-custom-news-break:hidden block'>
+        <Slider infinite slidesToShow={1} speed={250} slidesToScroll={1} arrows={false} dots draggable>
+          {pageContent.map((cont: any) => {
+            const baseShorthand = cont.node;
+            const categoryShorthand = baseShorthand.introNews?.kategorija?.edges[0].node.name || 'No category';
+            const titleShorthand = baseShorthand?.sadrzajHrFields?.naslovSadrzajHr || 'No title';
+            const introTextShorthand = baseShorthand?.sadrzajHrFields?.kratkiUvodniTekstSadrzajHr || 'No intro';
+            const thumbnailImageShorthand = baseShorthand?.introNews?.thumbnail?.node?.sourceUrl;
+            const readTime = readingTime(introTextShorthand);
+
+            return (
+              <a
+                key={baseShorthand.id}
+                href={`/${lang}/news/${slugify(`${titleShorthand}`, slugifyOptions) + `-${baseShorthand.id}`}`}
+              >
+                <article className='w-full h-full !flex !gap-5'>
+                  <Image
+                    src={thumbnailImageShorthand}
+                    alt='News card thumbnail'
+                    width={336}
+                    height={302}
+                    className='object-cover object-center max-w-[60%]'
+                    loading='lazy'
+                  />
+                  <div className='w-full'>
+                    <span className='lg:mt-8 mt-6 block lg:text-xl md:text-lg text-base text-prva-tamnija-boja font-light'>
+                      {categoryShorthand}
+                    </span>
+                    <h3 className={`${PT.className} lg:text-3xl md:text-2xl text-lg text-prva-tamna-boja`}>
+                      {titleShorthand}
+                    </h3>
+                    <div className='lg:mt-5 mt-3 prose lg:prose-p:text-base prose-p:text-sm lg:prose-p:leading-5 prose-p:leading-3 md:block hidden'>
+                      {parse(introTextShorthand)}
+                    </div>
+                    <div className='w-full text-xs  items-center justify-end gap-1 mt-5 md:flex hidden'>
+                      <ClockIcon />
+                      <span>{readTime.text}</span>
+                    </div>
+                  </div>
+                </article>
+              </a>
             );
           })}
         </Slider>

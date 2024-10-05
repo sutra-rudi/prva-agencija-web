@@ -6,7 +6,6 @@ import Image from 'next/image';
 import { PT_Serif } from 'next/font/google';
 import { logoSymbol } from '../pathsUtils/mediaImportsDynamic';
 import { useParallax } from 'react-scroll-parallax';
-import { useState } from 'react';
 
 const PT = PT_Serif({ subsets: ['latin'], weight: ['400'], style: ['italic'] });
 
@@ -42,7 +41,7 @@ const AboutUsSection = () => {
       />
       <div className='kontejner w-full h-full flex  items-center justify-center max-w-screen-xl mx-auto z-[2] flex-col'>
         <div className='kontejnermali w-full h-full flex justify-center gap-20  prva-custom-break:flex-nowrap flex-wrap'>
-          <div className='lg:max-w-[55ch]  w-full flex flex-col items-start justify-start gap-6  px-4 lg:pt-0 pt-6'>
+          <div className='lg:max-w-[55ch]  w-full flex flex-col items-start justify-start gap-6  px-4 lg:pt-0 pt-12'>
             <h2 className={`${PT.className} xl:text-5xl lg:text-4xl text-3xl text-prva-tamnozelena-boja `}>O nama</h2>
             <p className='lg:text-lg text-base text-prva-tamnozelena-boja'>{textBlockFirst}</p>
             <blockquote className={`${PT.className} lg:text-2xl text-xl  text-prva-tamnija-boja `}>

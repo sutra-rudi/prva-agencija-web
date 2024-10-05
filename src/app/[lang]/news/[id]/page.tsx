@@ -1,6 +1,8 @@
 import { getSingleNewsQuery } from '@/app/queries/getSingleNewsQuery';
 import { blogLanguageFields } from '@/app/pathsUtils/blogLanguageFields';
+
 import dynamic from 'next/dynamic';
+
 const LazyContent = dynamic(() => import('./PageContent'));
 export default async function SingleNewsPage({ params: { lang, id } }: { params: { lang: string; id: string } }) {
   const getIdFromSlug = (slug: string): string => {
@@ -18,6 +20,7 @@ export default async function SingleNewsPage({ params: { lang, id } }: { params:
     body: JSON.stringify({
       query: getSingleNewsQuery(slugId, lang),
     }),
+    cache: 'no-cache',
   });
 
   const parseData = await getSingleNews.json();
@@ -35,8 +38,10 @@ export default async function SingleNewsPage({ params: { lang, id } }: { params:
 
   const tagsField = prepareDataForClient[constructField].tagText;
 
+  console.log(prepareDataForClient);
+
   return (
-    <main>
+    <main className='w-full relative'>
       <LazyContent
         content={prepareDataForClient[languageField]}
         global={prepareDataForClient.introNews}

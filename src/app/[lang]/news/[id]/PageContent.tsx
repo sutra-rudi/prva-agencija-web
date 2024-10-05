@@ -47,7 +47,7 @@ const PageContent = ({ content, global, gallery, files, tags }: BlogPageContent)
 
   return (
     <article className='w-full z-10 relative pt-40'>
-      <div className='flex flex-col items-start justify-start max-w-screen-2xl mx-auto lg:w-3/4 md:w-11/12 w-full px-4'>
+      <div className='flex flex-col items-start justify-start max-w-screen-2xl mx-auto lg:w-2/4 md:w-11/12 w-full px-4'>
         <div className=' flex items-center justify-start w-full'>
           <h4 className='text-secondary-dark uppercase text-lg font-light'>Novosti</h4>
         </div>

@@ -1,11 +1,12 @@
-import React from 'react';
+'use client';
 import prvaCEO from '../images/prva-zena-1.png';
 import prvaCEOSec from '../images/prva-zena-2.png';
 import teksturaPaper from '../images/prva-tekstura-paper.png';
 import Image from 'next/image';
 import { PT_Serif } from 'next/font/google';
-import { SutraButtonBase } from '../components/SutraButton';
 import { logoSymbol } from '../pathsUtils/mediaImportsDynamic';
+import { useParallax } from 'react-scroll-parallax';
+import { useState } from 'react';
 
 const PT = PT_Serif({ subsets: ['latin'], weight: ['400'], style: ['italic'] });
 
@@ -16,8 +17,36 @@ const quoteText = `Biti ćemo vaš čarobnjak iz sjene, spreman da vaš brend po
 const textBlockSecond = `Napravite s nama PRvi korak ka željenom imidžu. Vodit ćemo Vam društvene mreže, kreirati online kampanje, pisati tekstove i članke, organizirati događaje i savjetovati Vas u vezi s poslovanjem. Zajedno ćemo ispisati stranice Vašeg uspjeha.`;
 
 const AboutUsSection = () => {
+  const [isParallaxActive, setParallaxActive] = useState(true);
+
+  const handleParallaxStop = (progress: number) => {
+    if (progress > 0.7) {
+      setParallaxActive(false);
+    } else {
+      setParallaxActive(true);
+    }
+  };
+
+  const backgroundParallax = useParallax({
+    translateY: isParallaxActive ? [0, 5] : [5, 5],
+    onProgressChange: handleParallaxStop,
+    shouldAlwaysCompleteAnimation: true,
+  });
+
+  const foregroundParallax = useParallax({
+    translateY: isParallaxActive ? [0, 10] : [10, 10],
+    onProgressChange: handleParallaxStop,
+    shouldAlwaysCompleteAnimation: true,
+  });
+
+  const overlayParallax = useParallax({
+    translateY: [0, 15],
+    onProgressChange: handleParallaxStop,
+    shouldAlwaysCompleteAnimation: true,
+  });
+
   return (
-    <section className='w-full h-full min-h-screen flex items-center justify-center relative flex-wrap bg-white border border-black overflow-x-hidden'>
+    <section className='w-full h-full min-h-screen flex items-center justify-center relative flex-wrap bg-white overflow-x-hidden'>
       <Image
         src={teksturaPaper}
         alt='background texture'
@@ -25,7 +54,7 @@ const AboutUsSection = () => {
         className='absolute inset-0 w-full h-full object-cover z-[1] pointer-events-none select-none opacity-30'
       />
       <div className='kontejner w-full h-full flex  items-center justify-center max-w-screen-xl mx-auto z-[2] flex-col'>
-        <div className='kontejnermali w-full h-full flex justify-center gap-20  prva-custom-break:flex-nowrap flex-wrap bg-red-400'>
+        <div className='kontejnermali w-full h-full flex justify-center gap-20  prva-custom-break:flex-nowrap flex-wrap'>
           <div className='lg:max-w-[55ch]  w-full flex flex-col items-start justify-start gap-6  px-4 lg:pt-0 pt-6'>
             <h2 className={`${PT.className} xl:text-5xl lg:text-4xl text-3xl text-prva-tamnozelena-boja `}>O nama</h2>
             <p className='lg:text-lg text-base text-prva-tamnozelena-boja'>{textBlockFirst}</p>
@@ -40,16 +69,18 @@ const AboutUsSection = () => {
               </button>
             </a>
           </div>
-          <div className='h-full w-full bg-blue-400 relative'>
+          <div className='w-full relative h-full lg:min-h-[unset] min-h-[800px]'>
             <Image
+              ref={backgroundParallax.ref as any}
               src={prvaCEO}
               width={456}
               height={551}
               alt='Prva agencija CEO'
-              className='object-cover object-center z-20 block relative lg:h-auto h-[680px] '
+              className='object-cover object-center z-20 block relative lg:h-auto h-[680px]'
             />
 
             <Image
+              ref={overlayParallax.ref as any}
               src={prvaCEOSec}
               width={353}
               height={530}
@@ -58,6 +89,7 @@ const AboutUsSection = () => {
             />
 
             <Image
+              ref={foregroundParallax.ref as any}
               src={logoSymbol['dark-bg']}
               alt='Prva agencija logo'
               width={140}

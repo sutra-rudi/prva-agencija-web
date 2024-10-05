@@ -108,6 +108,9 @@ const config: Config = {
         sutraBlogTestMaxWidth: '750px',
         sutraContactUsTempFormWidth: '1200px',
       },
+      screens: {
+        'prva-custom-break': '817px',
+      },
     },
   },
   plugins: [require('@tailwindcss/typography'), require('tailwind-scrollbar'), require('@tailwindcss/forms')],

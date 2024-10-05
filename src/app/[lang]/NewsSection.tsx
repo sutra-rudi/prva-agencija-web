@@ -28,7 +28,7 @@ const NewsSection = ({ pageContent, lang }: NewsSectionInterface) => {
         Izdvojeni projekti
       </h2>
 
-      <div className='w-full max-w-screen-2xl mx-auto flex lg:items-start items-center justify-center  gap-6 xl:flex-nowrap flex-wrap'>
+      <div className='w-full max-w-screen-2xl mx-auto flex lg:items-start items-center justify-center  gap-6 2xl:flex-nowrap flex-wrap'>
         {pageContent.map((cont: any) => {
           const baseShorthand = cont.node;
           const categoryShorthand = baseShorthand.introNews?.kategorija?.edges[0].node.name || 'No category';

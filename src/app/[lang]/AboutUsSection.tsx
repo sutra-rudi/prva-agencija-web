@@ -17,16 +17,16 @@ const textBlockSecond = `Napravite s nama PRvi korak ka željenom imidžu. Vodit
 
 const AboutUsSection = () => {
   return (
-    <section className='w-full h-full min-h-screen flex items-center justify-center relative flex-wrap bg-white '>
+    <section className='w-full h-full min-h-screen flex items-center justify-center relative flex-wrap bg-white border border-black overflow-x-hidden'>
       <Image
         src={teksturaPaper}
         alt='background texture'
         fill
         className='absolute inset-0 w-full h-full object-cover z-[1] pointer-events-none select-none opacity-30'
       />
-      <div className='kontejner w-full h-full flex items-center justify-center max-w-screen-xl mx-auto z-[2] flex-col'>
-        <div className='kontejnermali w-full h-full flex justify-center gap-20  lg:flex-nowrap flex-wrap'>
-          <div className='max-w-[55ch] flex flex-col items-start justify-start gap-6 lg:px-0 px-4 lg:pt-0 pt-6'>
+      <div className='kontejner w-full h-full flex  items-center justify-center max-w-screen-xl mx-auto z-[2] flex-col'>
+        <div className='kontejnermali w-full h-full flex justify-center gap-20  prva-custom-break:flex-nowrap flex-wrap bg-red-400'>
+          <div className='lg:max-w-[55ch]  w-full flex flex-col items-start justify-start gap-6  px-4 lg:pt-0 pt-6'>
             <h2 className={`${PT.className} xl:text-5xl lg:text-4xl text-3xl text-prva-tamnozelena-boja `}>O nama</h2>
             <p className='lg:text-lg text-base text-prva-tamnozelena-boja'>{textBlockFirst}</p>
             <blockquote className={`${PT.className} lg:text-2xl text-xl  text-prva-tamnija-boja `}>
@@ -40,31 +40,37 @@ const AboutUsSection = () => {
               </button>
             </a>
           </div>
-          <div className='relative h-full lg:w-auto w-full lg:block flex justify-center items-end'>
+          <div className='h-full w-full bg-blue-400 relative'>
             <Image
               src={prvaCEO}
               width={456}
               height={551}
               alt='Prva agencija CEO'
-              className='object-cover object-center z-20 block relative shrink-0 lg:w-auto md:w-[350px] w-[283px] h-[350px] bottom-0'
+              className='object-cover object-center z-20 block relative lg:h-auto h-[680px] '
             />
 
-            <div className='lg:block flex items-end justify-end '>
-              <Image
-                src={prvaCEOSec}
-                width={353}
-                height={530}
-                alt='Prva agencija CEO'
-                className='object-cover object-center lg:absolute relative lg:-top-[20%] lg:-right-14  z-10 lg:w-auto w-[278px] lg:h-auto h-[431px] '
-              />
-            </div>
+            <Image
+              src={prvaCEOSec}
+              width={353}
+              height={530}
+              alt='Prva agencija CEO'
+              className='object-cover object-center absolute  lg:-top-12 top-0  -right-24  z-10 lg:h-auto h-[680px] '
+            />
 
             <Image
               src={logoSymbol['dark-bg']}
               alt='Prva agencija logo'
-              width={125}
-              height={125}
-              className='object-cover object-center  absolute  z-20 top-[89.3%] right-[14.45%] xl:block hidden'
+              width={140}
+              height={140}
+              className='object-cover object-center lg:block hidden absolute  z-20  -bottom-12 left-[60%]'
+            />
+
+            <Image
+              src={logoSymbol['dark-bg']}
+              alt='Prva agencija logo'
+              width={140}
+              height={140}
+              className='object-cover object-center prva-custom-break:hidden block absolute  z-20  bottom-12 left-[60%]'
             />
           </div>
         </div>

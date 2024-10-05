@@ -106,7 +106,7 @@ const AppHeader = () => {
               <a href={`/${currentLang}`} title='' className='block w-52 h-12 relative'>
                 <Image
                   className='dark:hidden block w-full h-full object-center object-cover'
-                  src={logoHorizontal['monochrome-dark']}
+                  src={logoHorizontal['dark-bg']}
                   alt=''
                   width={200}
                   height={50}

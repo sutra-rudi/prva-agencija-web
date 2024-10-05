@@ -5,6 +5,7 @@ import { PT_Serif } from 'next/font/google';
 import parse from 'html-react-parser';
 import uslugeBG from '../images/usluge-lines-slika.png';
 import Image from 'next/image';
+import { useParallax } from 'react-scroll-parallax';
 
 const PT = PT_Serif({ subsets: ['latin'], weight: ['400'], style: ['italic'] });
 
@@ -55,10 +56,15 @@ interface UslugeSectionInterface {
 
 const UslugeSection = ({ pageContent, lang }: UslugeSectionInterface) => {
   // const schemaOrgData = generateServicesSchemaOrg(pageContent, lang);
+  const backgroundParallax = useParallax({
+    translateY: [0, 5],
+    shouldAlwaysCompleteAnimation: true,
+  });
 
   return (
-    <section className='w-full bg-prva-svijetla-boja relative pt-16 pb-20  px-4'>
+    <section className='w-full bg-prva-svijetla-boja relative pt-16 pb-20  px-4 overflow-hidden'>
       <Image
+        ref={backgroundParallax.ref as any}
         src={uslugeBG}
         alt='art lines'
         fill
@@ -77,25 +83,52 @@ const UslugeSection = ({ pageContent, lang }: UslugeSectionInterface) => {
         </p>
       </div>
 
-      <div className='w-1/2 h-px mx-auto bg-prva-tamna-boja mt-10'></div>
-      <div className='max-w-screen-xl mx-auto my-8 grid lg:grid-cols-2 grid-cols-1 lg:place-items-start place-items-center gap-14'>
-        {pageContent.map((cont: any) => {
-          const titleShorthand = cont.node.uslugeSadrzajHr.sadrzajGrupeUsluga;
-          const contentShorthand = titleShorthand.sadrzajusluge;
-          return (
-            <article
-              key={cont.node.id}
-              className='flex flex-col gap-2 items-start justify-start md:text-left text-center'
-            >
-              <h3 className={`${PT.className} text-h5_xs text-prva-tamnozelena-boja w-full md:text-left text-center`}>
-                {titleShorthand.nazivusluge}
-              </h3>
-              <div className='prose prose-p:text-base prose-p:text-prva-tamnozelena-boja'>
-                {parse(contentShorthand.sadrzajPasusa)}
-              </div>
-            </article>
-          );
-        })}
+      <div className='w-1/2 h-px mx-auto bg-prva-tamna-boja mt-10 mb-24'></div>
+      <div className='max-w-screen-xl mx-auto my-8'>
+        <div className='w-full flex items-start justify-start lg:gap-8 gap-14 md:flex-nowrap flex-wrap'>
+          <div className='grid grid-cols-1 lg:place-items-start place-items-center gap-14'>
+            {pageContent.slice(0, 3).map((cont: any) => {
+              const titleShorthand = cont.node.uslugeSadrzajHr.sadrzajGrupeUsluga;
+              const contentShorthand = titleShorthand.sadrzajusluge;
+              return (
+                <article
+                  key={cont.node.id}
+                  className='flex flex-col gap-2 items-start justify-start md:text-left text-center'
+                >
+                  <h3
+                    className={`${PT.className} text-h5_xs text-prva-tamnozelena-boja w-full md:text-left text-center`}
+                  >
+                    {titleShorthand.nazivusluge}
+                  </h3>
+                  <div className='prose prose-p:text-base prose-p:text-prva-tamnozelena-boja'>
+                    {parse(contentShorthand.sadrzajPasusa)}
+                  </div>
+                </article>
+              );
+            })}
+          </div>
+          <div className='grid grid-cols-1 lg:place-items-start place-items-center gap-14'>
+            {pageContent.slice(3, 7).map((cont: any) => {
+              const titleShorthand = cont.node.uslugeSadrzajHr.sadrzajGrupeUsluga;
+              const contentShorthand = titleShorthand.sadrzajusluge;
+              return (
+                <article
+                  key={cont.node.id}
+                  className='flex flex-col gap-2 items-start justify-start md:text-left text-center'
+                >
+                  <h3
+                    className={`${PT.className} text-h5_xs text-prva-tamnozelena-boja w-full md:text-left text-center`}
+                  >
+                    {titleShorthand.nazivusluge}
+                  </h3>
+                  <div className='prose prose-p:text-base prose-p:text-prva-tamnozelena-boja'>
+                    {parse(contentShorthand.sadrzajPasusa)}
+                  </div>
+                </article>
+              );
+            })}
+          </div>
+        </div>
       </div>
 
       {/* <Script

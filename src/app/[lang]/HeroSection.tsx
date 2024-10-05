@@ -4,6 +4,7 @@ import Image from 'next/image';
 import prvaAgencijaHeroBg from '../images/prva-hero-bg.png';
 import { Cormorant_Garamond } from 'next/font/google';
 import Snowfall from 'react-snowfall';
+import { useParallax } from 'react-scroll-parallax';
 const CormoGara = Cormorant_Garamond({ subsets: ['latin'], weight: ['300'], style: ['italic'] });
 
 const checkImageUrl = async (url: string): Promise<boolean> => {
@@ -20,16 +21,29 @@ const checkImageUrl = async (url: string): Promise<boolean> => {
 };
 
 const HeroSection = () => {
+  const backgroundParallax = useParallax({
+    translateY: [0, 15],
+    shouldAlwaysCompleteAnimation: true,
+  });
+
+  const foregroundParallax = useParallax({
+    translateY: [0, 20],
+    shouldAlwaysCompleteAnimation: true,
+  });
   return (
-    <section className='bg-white dark:bg-gray-900 h-screen w-full relative animate-easeFadeBasic'>
+    <section className='bg-white h-screen w-full relative animate-easeFadeBasic'>
       <div className='relative w-full h-full bg-primary-dark flex items-center justify-center'>
-        <div className='flex flex-col gap-4 items-center justify-center lg:px-0 px-4'>
+        <div
+          ref={foregroundParallax.ref as any}
+          className='flex flex-col gap-4 items-center justify-center lg:px-0 px-4'
+        >
           <h1
             className={`${CormoGara.className} text-prva-svijetla-boja xl:text-5xl text-4xl  whitespace-pre-wrap text-center`}
           >{`„Advertising is saying you're good.\nPR is getting someone else to say you're good.“ `}</h1>
           <p className='text-prva-svijetla-boja lg:text-h5_xs text-lg'>Jean-Louis Gassée</p>
         </div>
         <Image
+          ref={backgroundParallax.ref as any}
           src={prvaAgencijaHeroBg}
           width={1600}
           height={1200}

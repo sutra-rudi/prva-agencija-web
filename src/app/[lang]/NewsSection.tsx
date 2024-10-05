@@ -22,7 +22,6 @@ interface NewsSectionInterface {
 const PT = PT_Serif({ subsets: ['latin'], weight: ['400'], style: ['italic'] });
 
 const NewsSection = ({ pageContent, lang }: NewsSectionInterface) => {
-  // console.log('PAGI CONT NEWS', pageContent);
   return (
     <section className='w-full min-h-screen relative px-4'>
       <Image

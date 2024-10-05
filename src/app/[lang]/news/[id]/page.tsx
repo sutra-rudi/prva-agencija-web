@@ -1,7 +1,7 @@
 import { getSingleNewsQuery } from '@/app/queries/getSingleNewsQuery';
 import { blogLanguageFields } from '@/app/pathsUtils/blogLanguageFields';
-
 import dynamic from 'next/dynamic';
+import { Suspense } from 'react';
 
 const LazyContent = dynamic(() => import('./PageContent'));
 export default async function SingleNewsPage({ params: { lang, id } }: { params: { lang: string; id: string } }) {
@@ -38,17 +38,17 @@ export default async function SingleNewsPage({ params: { lang, id } }: { params:
 
   const tagsField = prepareDataForClient[constructField].tagText;
 
-  console.log(prepareDataForClient);
-
   return (
-    <main className='w-full relative'>
-      <LazyContent
-        content={prepareDataForClient[languageField]}
-        global={prepareDataForClient.introNews}
-        gallery={prepareDataForClient.photoGallery.fotogalerija}
-        files={documentsField}
-        tags={tagsField}
-      />
+    <main className='w-full relative animate-easeFadeBasic'>
+      <Suspense>
+        <LazyContent
+          content={prepareDataForClient[languageField]}
+          global={prepareDataForClient.introNews}
+          gallery={prepareDataForClient.photoGallery.fotogalerija}
+          files={documentsField}
+          tags={tagsField}
+        />
+      </Suspense>
     </main>
   );
 }

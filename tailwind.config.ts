@@ -79,7 +79,7 @@ const config: Config = {
         h1_xl: '3.75rem',
         h2_lg: '3rem',
         h3_md: '2.25rem',
-        h4_sm: '1,875rem',
+        h4_sm: '1.875rem',
         h5_xs: '1.5rem',
         xl: '1.25rem',
         lg: '1.125rem',
@@ -111,6 +111,12 @@ const config: Config = {
       screens: {
         'prva-custom-break': '817px',
         'prva-custom-news-break': '1128px',
+      },
+
+      //FONT FAMILY
+
+      fontFamily: {
+        SERIF: ['PT Serif', 'serif'],
       },
     },
   },

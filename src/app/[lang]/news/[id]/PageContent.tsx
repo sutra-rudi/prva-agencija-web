@@ -46,17 +46,19 @@ const PageContent = ({ content, global, gallery, files, tags }: BlogPageContent)
   };
 
   return (
-    <article className='w-full z-10 relative pt-32'>
-      <div className='max-w-screen-2xl mx-auto flex items-center justify-start  lg:w-1/2 w-full'>
-        <h4 className='text-primary-dark uppercase text-lg'>Novosti</h4>
-      </div>
+    <article className='w-full z-10 relative pt-40'>
+      <div className='flex flex-col items-start justify-start max-w-screen-2xl mx-auto lg:w-3/4 md:w-11/12 w-full px-4'>
+        <div className=' flex items-center justify-start w-full'>
+          <h4 className='text-secondary-dark uppercase text-lg font-light'>Novosti</h4>
+        </div>
 
-      <div className='max-w-screen-2xl mx-auto flex items-center justify-center lg:w-1/2 w-full'>
-        <h2 className={`${PT.className} text-h1 leading-[120%]`}>{prepareContent[1]}</h2>
-      </div>
+        <div className=' flex items-center justify-start w-full'>
+          <h2 className={`${PT.className} xl:text-h1 lg:text-h2_lg text-h3_md  leading-[120%]`}>{prepareContent[1]}</h2>
+        </div>
 
-      <div className='max-w-screen-2xl mx-auto flex items-center justify-start lg:w-1/2 w-full'>
-        <h4 className='text-base text-primary-dark'>{dayjs(global.datum).format('DD.MM.YYYY')}</h4>
+        <div className=' flex items-center justify-start  w-full  pt-6 pb-16'>
+          <h4 className='text-base text-primary-dark'>{dayjs(global.datum).format('DD.MM.YYYY')}</h4>
+        </div>
       </div>
       <div className='w-full h-[650px] relative'>
         <Image
@@ -69,14 +71,24 @@ const PageContent = ({ content, global, gallery, files, tags }: BlogPageContent)
         />
       </div>
       <div className='max-w-screen-2xl mx-auto mt-16'>
-        <div className='grid grid-cols-1 justify-center place-items-start lg:w-2/4 w-full mx-auto'>
+        <div className='grid grid-cols-1 justify-start place-items-start lg:w-3/4 md:w-11/12 w-full px-4 mx-auto pb-16'>
           <TracingBeam>
-            <div className='mt-4 prose mx-auto'>{prepareContent[2] && parse(prepareContent[2])}</div>
+            <div
+              className={`${PT.className} max-w-screen-2xl mx-auto flex items-center justify-start w-full text-2xl text-secondary-dark prose`}
+            >
+              {parse(prepareContent[0])}
+            </div>
+
+            <div className='w-full h-px bg-gray-300 my-14'></div>
+
+            <div className='mt-4 prose lg:prose-h1:text-h3_md prose-h1:text-h4_sm prose-headings:font-SERIF prose-headings:font-normal prose-headings:italic mx-auto w-full'>
+              {prepareContent[2] && parse(prepareContent[2])}
+            </div>
           </TracingBeam>
 
-          <div className='flex flex-wrap w-full gap-2'>
-            {prepareGallery &&
-              prepareGallery.map((galImage: any) => {
+          {prepareGallery && (
+            <div className='flex flex-wrap w-full gap-2'>
+              {prepareGallery.map((galImage: any) => {
                 return (
                   galImage && (
                     <div key={galImage.node.sourceUrl} className='h-[250px] w-[350px] relative'>
@@ -90,21 +102,25 @@ const PageContent = ({ content, global, gallery, files, tags }: BlogPageContent)
                   )
                 );
               })}
-          </div>
+            </div>
+          )}
 
-          <div className=''>
-            <h4>Dokumenti</h4>
-            <button onClick={() => downloadFile(files.file.node.mediaItemUrl, files.fileName)}>
-              Preuzmi {files.fileName}
-            </button>
-          </div>
+          {files.file && (
+            <div className=''>
+              <h4>Dokumenti</h4>
+              <button onClick={() => downloadFile(files.file.node.mediaItemUrl, files.fileName)}>
+                Preuzmi {files.fileName}
+              </button>
+            </div>
+          )}
 
-          <div className='flex gap-1'>
-            {tags &&
-              prepareTags.map((singTag: string) => {
+          {tags && (
+            <div className='flex gap-1'>
+              {prepareTags.map((singTag: string) => {
                 return <span key={singTag}>{singTag}</span>;
               })}
-          </div>
+            </div>
+          )}
         </div>
       </div>
     </article>

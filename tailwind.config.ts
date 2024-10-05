@@ -110,6 +110,7 @@ const config: Config = {
       },
       screens: {
         'prva-custom-break': '817px',
+        'prva-custom-news-break': '1128px',
       },
     },
   },

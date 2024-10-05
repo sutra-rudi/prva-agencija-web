@@ -130,6 +130,16 @@ body {
   }
 }
 
+.slick-slide {
+  outline: none !important;
+  border: none !important;
+  user-select: none !important;
+}
+
+.slick-dots {
+  bottom: -40px !important;
+}
+
 .react-datepicker-popper {
   z-index: 9999 !important;
 }

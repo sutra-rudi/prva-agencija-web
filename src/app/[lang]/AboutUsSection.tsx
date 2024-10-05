@@ -17,31 +17,18 @@ const quoteText = `Biti ćemo vaš čarobnjak iz sjene, spreman da vaš brend po
 const textBlockSecond = `Napravite s nama PRvi korak ka željenom imidžu. Vodit ćemo Vam društvene mreže, kreirati online kampanje, pisati tekstove i članke, organizirati događaje i savjetovati Vas u vezi s poslovanjem. Zajedno ćemo ispisati stranice Vašeg uspjeha.`;
 
 const AboutUsSection = () => {
-  const [isParallaxActive, setParallaxActive] = useState(true);
-
-  const handleParallaxStop = (progress: number) => {
-    if (progress > 0.7) {
-      setParallaxActive(false);
-    } else {
-      setParallaxActive(true);
-    }
-  };
-
   const backgroundParallax = useParallax({
-    translateY: isParallaxActive ? [0, 5] : [5, 5],
-    onProgressChange: handleParallaxStop,
+    translateY: [0, 5],
     shouldAlwaysCompleteAnimation: true,
   });
 
   const foregroundParallax = useParallax({
-    translateY: isParallaxActive ? [0, 10] : [10, 10],
-    onProgressChange: handleParallaxStop,
+    translateY: [0, 10],
     shouldAlwaysCompleteAnimation: true,
   });
 
   const overlayParallax = useParallax({
     translateY: [0, 15],
-    onProgressChange: handleParallaxStop,
     shouldAlwaysCompleteAnimation: true,
   });
 
@@ -73,6 +60,7 @@ const AboutUsSection = () => {
             <Image
               ref={backgroundParallax.ref as any}
               src={prvaCEO}
+              quality={100}
               width={456}
               height={551}
               alt='Prva agencija CEO'
@@ -84,6 +72,7 @@ const AboutUsSection = () => {
               src={prvaCEOSec}
               width={353}
               height={530}
+              quality={100}
               alt='Prva agencija CEO'
               className='object-cover object-center absolute  lg:-top-12 top-0  -right-24  z-10 lg:h-auto h-[680px] '
             />

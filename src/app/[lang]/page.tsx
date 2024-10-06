@@ -73,7 +73,11 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
     return (
       <Suspense fallback={<Loading />}>
         <main className='relative w-full'>
-          <Suspense>{mediaShorthand && <HeroSection backgroundUrl={mediaShorthand.heroBg} />}</Suspense>
+          {mediaShorthand && (
+            <Suspense>
+              <HeroSection backgroundUrl={mediaShorthand.heroBg} />
+            </Suspense>
+          )}
 
           <Suspense>
             <AboutUsSection />

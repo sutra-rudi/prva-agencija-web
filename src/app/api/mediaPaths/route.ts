@@ -717,8 +717,6 @@ const mediaPaths = {
   },
 };
 
-console.log('MEDIA PATS', mediaPaths.prvaAgencijaOpt);
-
 export async function GET(request: NextRequest) {
   return NextResponse.json(mediaPaths);
 }

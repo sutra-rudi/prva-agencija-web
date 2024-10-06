@@ -68,12 +68,12 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
     const newsDataArrayShorthand = getAllNews.data.allNovosti.edges || [];
 
     const mediaShorthand = mediaRes.prvaAgencijaOpt;
+
+    console.log('MEDIA', mediaShorthand);
     return (
       <Suspense fallback={<Loading />}>
         <main className='relative w-full'>
-          <Suspense>
-            <HeroSection backgroundUrl={mediaShorthand.heroBg} />
-          </Suspense>
+          <Suspense>{mediaShorthand && <HeroSection backgroundUrl={mediaShorthand.heroBg} />}</Suspense>
 
           <Suspense>
             <AboutUsSection />

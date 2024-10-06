@@ -5,14 +5,14 @@ import dynamic from 'next/dynamic';
 import Loading from '../loading';
 import { getAllUslugeQuery } from '../queries/getAllUslugeQuery';
 import { getAllCarouselBaseQuery } from '../queries/getAllCarouselBase';
-import BannerSectionMainPage from './BannerSectionMainPage';
 import { getAllNewsQuery } from '../queries/getAllNewsQuery';
-import NewsSection from './NewsSection';
 
 const UslugeSection = dynamic(() => import('./UslugeSection'), { loading: () => <Loading /> });
 const CarouselBase = dynamic(() => import('./CarouselBase'), { loading: () => <Loading /> });
-const HeroSection = dynamic(() => import('./HeroSection'), { ssr: false, loading: () => <Loading /> });
+const HeroSection = dynamic(() => import('./HeroSection'), { loading: () => <Loading /> });
 const AboutUsSection = dynamic(() => import('./AboutUsSection'), { loading: () => <Loading /> });
+const BannerSectionMainPage = dynamic(() => import('./BannerSectionMainPage'), { loading: () => <Loading /> });
+const NewsSection = dynamic(() => import('./NewsSection'), { loading: () => <Loading /> });
 
 async function fetchData(query: any, noCache: boolean = false) {
   try {
@@ -70,40 +70,38 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
     const mediaShorthand = mediaRes.prvaAgencijaOpt;
 
     return (
-      <Suspense fallback={<Loading />}>
-        <main className='relative w-full'>
-          {mediaShorthand && (
-            <Suspense>
-              <HeroSection backgroundUrl={mediaShorthand.heroBg} />
-            </Suspense>
-          )}
-
+      <main className='relative w-full'>
+        {mediaShorthand && (
           <Suspense>
-            <AboutUsSection />
+            <HeroSection backgroundUrl={mediaShorthand.heroBg} />
           </Suspense>
+        )}
 
+        <Suspense>
+          <AboutUsSection />
+        </Suspense>
+
+        <Suspense>
+          <BannerSectionMainPage />
+        </Suspense>
+        {uslugeDataArrayShorthand.length > 0 && (
           <Suspense>
-            <BannerSectionMainPage />
+            <UslugeSection pageContent={uslugeDataArrayShorthand} lang={lang} />
           </Suspense>
-          {uslugeDataArrayShorthand.length > 0 && (
-            <Suspense>
-              <UslugeSection pageContent={uslugeDataArrayShorthand} lang={lang} />
-            </Suspense>
-          )}
+        )}
 
-          {newsDataArrayShorthand.length > 0 && (
-            <Suspense>
-              <NewsSection pageContent={newsDataArrayShorthand} lang={lang} />
-            </Suspense>
-          )}
+        {newsDataArrayShorthand.length > 0 && (
+          <Suspense>
+            <NewsSection pageContent={newsDataArrayShorthand} lang={lang} />
+          </Suspense>
+        )}
 
-          {baseCarouselDataShorthand && (
-            <Suspense>
-              <CarouselBase imageArray={baseCarouselDataShorthand} />
-            </Suspense>
-          )}
-        </main>
-      </Suspense>
+        {baseCarouselDataShorthand && (
+          <Suspense>
+            <CarouselBase imageArray={baseCarouselDataShorthand} />
+          </Suspense>
+        )}
+      </main>
     );
   } catch (error) {
     console.error('Error loading page content:', error);

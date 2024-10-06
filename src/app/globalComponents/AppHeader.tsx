@@ -5,7 +5,6 @@ import React from 'react';
 import { Twirl as Hamburger } from 'hamburger-react';
 import Image from 'next/image';
 import { useLocalStorage } from '@uidotdev/usehooks';
-import { logoHorizontal } from '../pathsUtils/mediaImportsDynamic';
 
 interface AppHeaderInterface {
   logoUrl: string | any;
@@ -92,8 +91,6 @@ const AppHeader = ({ logoUrl }: AppHeaderInterface) => {
     );
   };
 
-  console.log('LOGO', logoUrl);
-
   return (
     <nav className='bg-transparent absolute z-50 w-full top-0'>
       <div className='max-w-screen-xl px-4 mx-auto 2xl:px-0 pb-4 pt-12'>
@@ -104,17 +101,9 @@ const AppHeader = ({ logoUrl }: AppHeaderInterface) => {
                 <Image
                   className='dark:hidden block w-full h-full object-center object-cover'
                   src={logoUrl}
-                  alt=''
+                  alt='Prva Agencija logo'
                   width={200}
                   height={50}
-                />
-
-                <Image
-                  className='hidden dark:block w-full h-full'
-                  src='https://cms.sutra.hr/wp-content/uploads/2024/06/Sutra-profilna-slika-1.jpg'
-                  alt=''
-                  width={128}
-                  height={128}
                 />
               </a>
             </div>

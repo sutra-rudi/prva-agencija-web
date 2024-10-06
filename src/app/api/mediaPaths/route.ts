@@ -5,8 +5,6 @@ import { NextRequest } from 'next/server';
 const basePath = 'https://cornflowerblue-grasshopper-449979.hostingersite.com/cms_sutra/';
 // Sve putanje, možeš dodati sve potrebne objekte ovdje
 const mediaPaths = {
-  // const basePath : 'https://cms.sutra.hr/cms_sutra/'
-
   favicons: {
     '196x196': `${basePath}Favicon/favicon-196x196.png`,
     '96x96': `${basePath}Favicon/favicon-96x96.png`,
@@ -711,7 +709,14 @@ const mediaPaths = {
   },
 
   // Ostale grupe medijskih putanja
+
+  prvaAgencijaOpt: {
+    heroBg: `${basePath}prva-optimizirane-slike/prva-hero-bg.png`,
+    uslugeLines: `${basePath}prva-optimizirane-slike/usluge-lines-slika.png`,
+  },
 };
+
+console.log('MEDIA PATS', mediaPaths.prvaAgencijaOpt);
 
 export async function GET(request: NextRequest) {
   return NextResponse.json(mediaPaths);

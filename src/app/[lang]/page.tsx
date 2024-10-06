@@ -37,7 +37,27 @@ async function fetchData(query: any, noCache: boolean = false) {
   }
 }
 
+async function fetchMediaPaths() {
+  try {
+    const response = await fetch(`${process.env.BASE_APP_URL}/api/mediaPaths`, { cache: 'no-cache' });
+
+    if (!response.ok) {
+      throw new Error('Neuspješno dohvaćanje putanja medija');
+    }
+
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error('Greška prilikom dohvaćanja medija:', error);
+    return [];
+  }
+}
+
 export default async function Landing({ params: { lang } }: { params: { lang: string } }) {
+  const mediaRes = await fetchMediaPaths();
+
+  console.log('FETCH', mediaRes.prvaAgencijaOpt);
+
   try {
     const getAllUsluge = await fetchData(getAllUslugeQuery());
     const getAllCarouselBase = await fetchData(getAllCarouselBaseQuery());

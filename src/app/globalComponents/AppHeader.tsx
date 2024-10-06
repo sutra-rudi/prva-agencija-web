@@ -3,13 +3,15 @@
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import React from 'react';
 import { Twirl as Hamburger } from 'hamburger-react';
-import { LuSun as SunIcon, LuMoon as MoonIcon } from 'react-icons/lu';
-import { Hr, Gb, It, De } from 'react-flags-select';
 import Image from 'next/image';
 import { useLocalStorage } from '@uidotdev/usehooks';
 import { logoHorizontal } from '../pathsUtils/mediaImportsDynamic';
 
-const AppHeader = () => {
+interface AppHeaderInterface {
+  logoUrl: string | any;
+}
+
+const AppHeader = ({ logoUrl }: AppHeaderInterface) => {
   const currentPath = usePathname();
   const searchParams = useSearchParams();
   const router = useRouter();
@@ -19,13 +21,6 @@ const AppHeader = () => {
 
   const [theme, setTheme] = React.useState(getThemeIfAny);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState<boolean>(false);
-
-  const langs = [
-    { title: 'Hrvatski', lang: 'hr', flag: <Hr width={24} height={24} /> },
-    { title: 'English', lang: 'eng', flag: <Gb width={24} height={24} /> },
-    { title: 'Deutsch', lang: 'ger', flag: <De width={24} height={24} /> },
-    { title: 'Italiano', lang: 'ita', flag: <It width={24} height={24} /> },
-  ];
 
   const navLinks = {
     main: [
@@ -97,6 +92,8 @@ const AppHeader = () => {
     );
   };
 
+  console.log('LOGO', logoUrl);
+
   return (
     <nav className='bg-transparent absolute z-50 w-full top-0'>
       <div className='max-w-screen-xl px-4 mx-auto 2xl:px-0 pb-4 pt-12'>
@@ -106,7 +103,7 @@ const AppHeader = () => {
               <a href={`/${currentLang}`} title='' className='block w-52 h-12 relative'>
                 <Image
                   className='dark:hidden block w-full h-full object-center object-cover'
-                  src={logoHorizontal['dark-bg']}
+                  src={logoUrl}
                   alt=''
                   width={200}
                   height={50}
@@ -151,23 +148,6 @@ const AppHeader = () => {
             </div>
           </div>
           <div className='flex items-center space-x-4 z-40'>
-            {/* {langs.map((language) => (
-              <button
-                disabled={currentLang === language.lang}
-                key={language.lang}
-                className='text-sm font-medium text-gray-900 dark:text-white flex place-items-center gap-2 transition-all ease-out hover:-translate-y-1 hover:scale-110'
-                onClick={() => handleLangSwitch(language.lang)}
-              >
-                {language.flag}
-              </button>
-            ))} */}
-
-            {/* <div
-              onClick={handleTheme}
-              className='z-40 cursor-pointer outline outline-1 rounded-full outline-offset-4 outline-almost-black dark:outline-almost-white transition-all duration-300 ease-linear'
-            >
-              {theme === 'light' ? <SunIcon size={24} color='#181816' /> : <MoonIcon size={24} color='#F8F7F2' />}
-            </div> */}
             <div className='w-min z-40'>
               <Hamburger color='#C3C6B6' onToggle={() => setIsMobileMenuOpen(!isMobileMenuOpen)} />
             </div>

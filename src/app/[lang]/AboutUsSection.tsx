@@ -14,8 +14,11 @@ const textBlockFirst = `Zamislite da vaš brend postane glavni junak najuzbudlji
 const quoteText = `Biti ćemo vaš čarobnjak iz sjene, spreman da vaš brend podignemo na tron popularnosti. Naša formula za uspjeh kombinacija je strateškog pristupa, kreativne genijalnost i doze avanturizma koja osvaja srca.`;
 
 const textBlockSecond = `Napravite s nama PRvi korak ka željenom imidžu. Vodit ćemo Vam društvene mreže, kreirati online kampanje, pisati tekstove i članke, organizirati događaje i savjetovati Vas u vezi s poslovanjem. Zajedno ćemo ispisati stranice Vašeg uspjeha.`;
-
-const AboutUsSection = () => {
+interface Ab {
+  dataLog: any;
+}
+const AboutUsSection = ({ dataLog }: Ab) => {
+  console.log('DATA LOG', dataLog);
   const backgroundParallax = useParallax({
     translateY: [0, 5],
     shouldAlwaysCompleteAnimation: true,

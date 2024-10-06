@@ -5,7 +5,6 @@ import dynamic from 'next/dynamic';
 import Loading from '../loading';
 import { getAllUslugeQuery } from '../queries/getAllUslugeQuery';
 import { getAllCarouselBaseQuery } from '../queries/getAllCarouselBase';
-import AboutUsSection from './AboutUsSection';
 import BannerSectionMainPage from './BannerSectionMainPage';
 import { getAllNewsQuery } from '../queries/getAllNewsQuery';
 import NewsSection from './NewsSection';
@@ -13,6 +12,7 @@ import NewsSection from './NewsSection';
 const UslugeSection = dynamic(() => import('./UslugeSection'), { loading: () => <Loading /> });
 const CarouselBase = dynamic(() => import('./CarouselBase'), { loading: () => <Loading /> });
 const HeroSection = dynamic(() => import('./HeroSection'), { ssr: false, loading: () => <Loading /> });
+const AboutUsSection = dynamic(() => import('./AboutUsSection'), { loading: () => <Loading /> });
 
 async function fetchData(query: any, noCache: boolean = false) {
   try {
@@ -80,7 +80,7 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
           )}
 
           <Suspense>
-            <AboutUsSection />
+            <AboutUsSection dataLog={mediaRes} />
           </Suspense>
 
           <Suspense>

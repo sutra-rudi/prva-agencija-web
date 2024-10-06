@@ -64,6 +64,7 @@ const AboutUsSection = () => {
               height={551}
               alt='Prva agencija CEO'
               className='object-cover object-center z-20 block relative lg:h-auto h-[680px]'
+              loading='lazy'
             />
 
             <Image
@@ -74,6 +75,7 @@ const AboutUsSection = () => {
               quality={100}
               alt='Prva agencija CEO'
               className='object-cover object-center absolute  lg:-top-12 top-0  -right-24  z-10 lg:h-auto h-[680px] '
+              loading='lazy'
             />
 
             <Image

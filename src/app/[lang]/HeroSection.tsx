@@ -1,26 +1,17 @@
 'use client';
 
 import Image from 'next/image';
-import prvaAgencijaHeroBg from '../images/prva-hero-bg.png';
+
 import { Cormorant_Garamond } from 'next/font/google';
 import Snowfall from 'react-snowfall';
 import { useParallax } from 'react-scroll-parallax';
 const CormoGara = Cormorant_Garamond({ subsets: ['latin'], weight: ['300'], style: ['italic'] });
 
-const checkImageUrl = async (url: string): Promise<boolean> => {
-  try {
-    const response = await fetch(url, {
-      method: 'HEAD',
-      next: { revalidate: 3600 },
-    });
-    return response.ok;
-  } catch (error) {
-    console.error('Error checking image URL:', error);
-    return false;
-  }
-};
+interface HeroSectionInterface {
+  backgroundUrl: string | any;
+}
 
-const HeroSection = () => {
+const HeroSection = ({ backgroundUrl }: HeroSectionInterface) => {
   const backgroundParallax = useParallax({
     translateY: [0, 15],
     shouldAlwaysCompleteAnimation: true,
@@ -44,7 +35,7 @@ const HeroSection = () => {
         </div>
         <Image
           ref={backgroundParallax.ref as any}
-          src={prvaAgencijaHeroBg}
+          src={backgroundUrl}
           width={1600}
           height={1200}
           alt='backround overlay for Prva Agencija'
@@ -58,8 +49,6 @@ const HeroSection = () => {
         speed={[1, 1.5]}
         radius={[0.25, 2]}
         wind={[1, 3]}
-
-        // changeFrequency={10}
       />
     </section>
   );

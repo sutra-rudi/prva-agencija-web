@@ -39,7 +39,7 @@ async function fetchData(query: any, noCache: boolean = false) {
 
 async function fetchMediaPaths() {
   try {
-    const response = await fetch(`${process.env.BASE_APP_URL}/api/mediaPaths`, { cache: 'no-cache' });
+    const response = await fetch(`${process.env.BASE_APP_URL}/api/mediaPaths`);
 
     if (!response.ok) {
       throw new Error('Neuspješno dohvaćanje putanja medija');
@@ -56,8 +56,6 @@ async function fetchMediaPaths() {
 export default async function Landing({ params: { lang } }: { params: { lang: string } }) {
   const mediaRes = await fetchMediaPaths();
 
-  console.log('FETCH', mediaRes.prvaAgencijaOpt);
-
   try {
     const getAllUsluge = await fetchData(getAllUslugeQuery());
     const getAllCarouselBase = await fetchData(getAllCarouselBaseQuery());
@@ -68,11 +66,13 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
     const baseCarouselDataShorthand = getAllCarouselBase.data.karuselNaslovnica.edges[0].node.photoGallery30pcs || null;
 
     const newsDataArrayShorthand = getAllNews.data.allNovosti.edges || [];
+
+    const mediaShorthand = mediaRes.prvaAgencijaOpt;
     return (
       <Suspense fallback={<Loading />}>
         <main className='relative w-full'>
           <Suspense>
-            <HeroSection />
+            <HeroSection backgroundUrl={mediaShorthand.heroBg} />
           </Suspense>
 
           <Suspense>

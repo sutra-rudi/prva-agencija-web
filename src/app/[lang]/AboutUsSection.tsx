@@ -17,8 +17,7 @@ const textBlockSecond = `Napravite s nama PRvi korak ka željenom imidžu. Vodit
 interface Ab {
   dataLog: any;
 }
-const AboutUsSection = ({ dataLog }: Ab) => {
-  console.log('DATA LOG', dataLog);
+const AboutUsSection = () => {
   const backgroundParallax = useParallax({
     translateY: [0, 5],
     shouldAlwaysCompleteAnimation: true,

@@ -69,7 +69,6 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
 
     const mediaShorthand = mediaRes.prvaAgencijaOpt;
 
-    console.log('MEDIA', mediaRes);
     return (
       <Suspense fallback={<Loading />}>
         <main className='relative w-full'>
@@ -80,7 +79,7 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
           )}
 
           <Suspense>
-            <AboutUsSection dataLog={mediaRes} />
+            <AboutUsSection />
           </Suspense>
 
           <Suspense>

@@ -139,7 +139,7 @@ export default async function RootLayout({
     >
       <body className={`${poppins.className} w-full h-full`}>
         <Suspense fallback={<Loading />}>
-          <ClientHeader logoUrl={mediaShorthand} />
+          <ClientHeader logoUrlLight={mediaShorthand.prvaLogoOnLight} logoUrlDark={mediaShorthand.prvaLogoOnDark} />
           <Toaster />
           <Providers>{children}</Providers>
 

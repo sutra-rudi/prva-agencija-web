@@ -7,10 +7,11 @@ import Image from 'next/image';
 import { useLocalStorage } from '@uidotdev/usehooks';
 
 interface AppHeaderInterface {
-  logoUrl: string | any;
+  logoUrlLight: string | any;
+  logoUrlDark: string | any;
 }
 
-const AppHeader = ({ logoUrl }: AppHeaderInterface) => {
+const AppHeader = ({ logoUrlLight, logoUrlDark }: AppHeaderInterface) => {
   const currentPath = usePathname();
   const searchParams = useSearchParams();
   const router = useRouter();
@@ -102,7 +103,7 @@ const AppHeader = ({ logoUrl }: AppHeaderInterface) => {
               <a href={`/${currentLang}`} title='' className='block w-52 h-12 relative'>
                 <Image
                   className='dark:hidden block w-full h-full object-center object-cover'
-                  src={logoUrl}
+                  src={isNewsPage ? logoUrlLight : logoUrlDark}
                   alt='Prva Agencija logo'
                   width={200}
                   height={50}

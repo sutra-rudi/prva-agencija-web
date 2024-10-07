@@ -131,8 +131,6 @@ export default async function RootLayout({
 
   const mediaShorthand = mediaRes.prvaAgencijaOpt;
 
-  console.log('MEDIA', mediaShorthand);
-
   return (
     <html
       // lang={lang}

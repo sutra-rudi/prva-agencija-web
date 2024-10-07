@@ -127,9 +127,11 @@ export default async function RootLayout({
 }>) {
   // const cookieStore = cookies();
   // const lang = (cookieStore.get('@sutra-user-lang')?.value as UserLanguage) || 'hr';
-  const headerLogo = await fetchMediaPaths();
+  const mediaRes = await fetchMediaPaths();
 
-  const mediaShorthand = headerLogo.logoHorizontal['dark-bg'];
+  const mediaShorthand = mediaRes.prvaAgencijaOpt;
+
+  console.log('MEDIA', mediaShorthand);
 
   return (
     <html

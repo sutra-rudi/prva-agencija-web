@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
 import { Poppins } from 'next/font/google';
 import './globals.scss';
-import { cookies } from 'next/headers';
-import { UserLanguage } from './enums/LangEnum';
+// import { cookies } from 'next/headers';
+// import { UserLanguage } from './enums/LangEnum';
 import { Toaster } from 'react-hot-toast';
 import { Suspense } from 'react';
 import Loading from './loading';
@@ -115,15 +115,16 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const cookieStore = cookies();
-  const lang = (cookieStore.get('@sutra-user-lang')?.value as UserLanguage) || 'hr';
+  // const cookieStore = cookies();
+  // const lang = (cookieStore.get('@sutra-user-lang')?.value as UserLanguage) || 'hr';
   const headerLogo = await fetchMediaPaths();
 
   const mediaShorthand = headerLogo.logoHorizontal['dark-bg'];
 
   return (
     <html
-      lang={lang}
+      // lang={lang}
+      lang='hr'
       className='scrollbar scrollbar-thumb-prva-tamnozelena-boja dark:scrollbar-thumb-primary-dark  scrollbar-track-prva-svijetla-boja dark:scrollbar-track-primary-light min-h-screen w-full h-full'
     >
       <body className={`${poppins.className} w-full h-full`}>

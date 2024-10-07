@@ -2,11 +2,12 @@ export const maxDuration = 60;
 
 import { Suspense } from 'react';
 import dynamic from 'next/dynamic';
-import Loading from '../loading';
+// import Loading from '../loading';
 import { getAllUslugeQuery } from '../queries/getAllUslugeQuery';
 import { getAllCarouselBaseQuery } from '../queries/getAllCarouselBase';
 import { getAllNewsQuery } from '../queries/getAllNewsQuery';
 
+const Loading = dynamic(() => import('../loading'), { ssr: false });
 const UslugeSection = dynamic(() => import('./UslugeSection'), { loading: () => <Loading /> });
 const CarouselBase = dynamic(() => import('./CarouselBase'), { loading: () => <Loading /> });
 const HeroSection = dynamic(() => import('./HeroSection'), { loading: () => <Loading /> });
@@ -70,37 +71,18 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
     const mediaShorthand = mediaRes.prvaAgencijaOpt;
 
     return (
-      <main className='relative w-full'>
-        {mediaShorthand && (
-          <Suspense>
-            <HeroSection backgroundUrl={mediaShorthand.heroBg} />
-          </Suspense>
-        )}
+      <main className='relative w-full min-h-dvh'>
+        {mediaShorthand && <HeroSection backgroundUrl={mediaShorthand.heroBg} />}
 
-        <Suspense>
-          <AboutUsSection />
-        </Suspense>
+        <AboutUsSection />
 
-        <Suspense>
-          <BannerSectionMainPage />
-        </Suspense>
-        {uslugeDataArrayShorthand.length > 0 && (
-          <Suspense>
-            <UslugeSection pageContent={uslugeDataArrayShorthand} lang={lang} />
-          </Suspense>
-        )}
+        <BannerSectionMainPage />
 
-        {newsDataArrayShorthand.length > 0 && (
-          <Suspense>
-            <NewsSection pageContent={newsDataArrayShorthand} lang={lang} />
-          </Suspense>
-        )}
+        {uslugeDataArrayShorthand.length > 0 && <UslugeSection pageContent={uslugeDataArrayShorthand} lang={lang} />}
 
-        {baseCarouselDataShorthand && (
-          <Suspense>
-            <CarouselBase imageArray={baseCarouselDataShorthand} />
-          </Suspense>
-        )}
+        {newsDataArrayShorthand.length > 0 && <NewsSection pageContent={newsDataArrayShorthand} lang={lang} />}
+
+        {baseCarouselDataShorthand && <CarouselBase imageArray={baseCarouselDataShorthand} />}
       </main>
     );
   } catch (error) {

@@ -1,6 +1,5 @@
 export const maxDuration = 60;
 
-import { Suspense } from 'react';
 import dynamic from 'next/dynamic';
 // import Loading from '../loading';
 import { getAllUslugeQuery } from '../queries/getAllUslugeQuery';
@@ -76,7 +75,7 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
 
         <AboutUsSection />
 
-        <BannerSectionMainPage />
+        {mediaShorthand && <BannerSectionMainPage mediaUrl={mediaShorthand.prvaStolPozadina} />}
 
         {uslugeDataArrayShorthand.length > 0 && <UslugeSection pageContent={uslugeDataArrayShorthand} lang={lang} />}
 

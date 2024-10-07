@@ -40,15 +40,13 @@ export default async function SingleNewsPage({ params: { lang, id } }: { params:
 
   return (
     <main className='w-full relative animate-easeFadeBasic'>
-      <Suspense>
-        <LazyContent
-          content={prepareDataForClient[languageField]}
-          global={prepareDataForClient.introNews}
-          gallery={prepareDataForClient.photoGallery.fotogalerija}
-          files={documentsField}
-          tags={tagsField}
-        />
-      </Suspense>
+      <LazyContent
+        content={prepareDataForClient[languageField]}
+        global={prepareDataForClient.introNews}
+        gallery={prepareDataForClient.photoGallery.fotogalerija}
+        files={documentsField}
+        tags={tagsField}
+      />
     </main>
   );
 }

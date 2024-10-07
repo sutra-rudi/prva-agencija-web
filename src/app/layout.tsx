@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { Poppins } from 'next/font/google';
 import './globals.scss';
 // import { cookies } from 'next/headers';
@@ -27,6 +27,16 @@ async function fetchMediaPaths() {
     return [];
   }
 }
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 3,
+  userScalable: true,
+  interactiveWidget: 'overlays-content',
+  colorScheme: 'light',
+  themeColor: '#C3C6B6',
+};
 
 export const metadata: Metadata = {
   title: 'Prva Agencija',

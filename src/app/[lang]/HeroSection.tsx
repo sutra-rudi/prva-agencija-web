@@ -53,11 +53,11 @@ const HeroSection = ({ backgroundUrl }: HeroSectionInterface) => {
   };
 
   return (
-    <section className='bg-white h-[70dvh] w-full relative animate-easeFadeBasic'>
+    <section className='bg-white lg:h-[678px] h-[560px] w-full relative animate-easeFadeBasic'>
       <div className='relative w-full h-full bg-primary-dark flex items-center justify-center z-10'>
         <div
           ref={foregroundParallax.ref as any}
-          className='flex flex-col gap-4 items-center justify-center lg:px-0 px-4 z-20'
+          className='flex flex-col lg:gap-4 gap-2 items-center justify-center lg:px-0 px-4 z-20'
         >
           <motion.h1
             initial='hidden'

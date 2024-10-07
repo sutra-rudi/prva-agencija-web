@@ -1,15 +1,17 @@
 'use client';
 
 import { ParallaxBanner, ParallaxBannerLayer } from 'react-scroll-parallax';
-import StolPozadina from '../images/prva-stol-pozadina.png';
 import Image from 'next/image';
-const BannerSectionMainPage = () => {
+interface BannerSection {
+  mediaUrl: string | any;
+}
+const BannerSectionMainPage = ({ mediaUrl }: BannerSection) => {
   return (
     <section className='w-full'>
       <ParallaxBanner className='w-full h-[360px] relative overflow-hidden' translate='yes'>
         <ParallaxBannerLayer speed={15}>
           <Image
-            src={StolPozadina}
+            src={mediaUrl}
             alt='Picture of a table in office'
             fill
             loading='lazy'

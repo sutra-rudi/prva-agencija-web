@@ -34,7 +34,7 @@ const AboutUsSection = () => {
   });
 
   return (
-    <section className='w-full h-full 2xl:min-h-screen min-h-[60vh] flex items-center justify-center relative flex-wrap bg-white overflow-x-hidden'>
+    <section className='w-full h-full 2xl:min-h-screen min-h-[80vh] flex items-center justify-center relative flex-wrap bg-white overflow-x-hidden'>
       <Image
         src={teksturaPaper}
         alt='background texture'
@@ -57,7 +57,7 @@ const AboutUsSection = () => {
               </button>
             </a>
           </div>
-          <div className='w-full relative h-full lg:min-h-[unset] min-h-[800px]'>
+          <div className='w-full relative h-full lg:min-h-[auto] min-h-[70vh] md:px-0 sm:px-4 px-0'>
             <Image
               ref={backgroundParallax.ref as any}
               src={prvaCEO}
@@ -65,7 +65,7 @@ const AboutUsSection = () => {
               width={456}
               height={551}
               alt='Prva agencija CEO'
-              className='object-cover object-center z-20 block relative lg:h-auto h-[680px]'
+              className='object-cover object-center z-20 block relative lg:h-auto h-[580px]'
               loading='lazy'
             />
 
@@ -76,7 +76,18 @@ const AboutUsSection = () => {
               height={530}
               quality={100}
               alt='Prva agencija CEO'
-              className='object-cover object-center absolute  lg:-top-12 top-0  -right-24  z-10 lg:h-auto h-[680px] '
+              className='object-cover object-center absolute  lg:-top-12 top-0  -right-24  z-10 lg:h-auto h-[580px] lg:block hidden'
+              loading='lazy'
+            />
+
+            <Image
+              ref={overlayParallax.ref as any}
+              src={prvaCEOSec}
+              width={353}
+              height={530}
+              quality={100}
+              alt='Prva agencija CEO'
+              className='object-cover object-center absolute  lg:-top-12 top-0  -right-24  z-10 lg:h-auto h-[580px] lg:hidden sm:block hidden'
               loading='lazy'
             />
 

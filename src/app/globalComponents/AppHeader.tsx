@@ -143,7 +143,10 @@ const AppHeader = ({ logoUrlLight, logoUrlDark }: AppHeaderInterface) => {
           </div>
           <div className='flex items-center space-x-4 z-40'>
             <div className='w-min z-40'>
-              <Hamburger color='#C3C6B6' onToggle={() => setIsMobileMenuOpen(!isMobileMenuOpen)} />
+              <Hamburger
+                color={`${isNewsPage ? '#181816' : '#C3C6B6'}`}
+                onToggle={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              />
             </div>
           </div>
         </div>

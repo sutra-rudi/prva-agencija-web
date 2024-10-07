@@ -19,17 +19,17 @@ interface Ab {
 }
 const AboutUsSection = () => {
   const backgroundParallax = useParallax({
-    translateY: [0, 5],
+    translateY: [0, 0],
     shouldAlwaysCompleteAnimation: true,
   });
 
   const foregroundParallax = useParallax({
-    translateY: [0, 10],
+    translateY: [0, 0],
     shouldAlwaysCompleteAnimation: true,
   });
 
   const overlayParallax = useParallax({
-    translateY: [0, 15],
+    translateY: [0, 25],
     shouldAlwaysCompleteAnimation: true,
   });
 

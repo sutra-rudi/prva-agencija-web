@@ -72,7 +72,7 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
 
     return (
       <main className='relative w-full min-h-dvh'>
-        {mediaShorthand && <HeroSection backgroundUrl={mediaShorthand.heroBgUpdate} />}
+        {mediaShorthand && <HeroSection backgroundUrl={mediaShorthand.heroBg} />}
 
         <AboutUsSection />
 

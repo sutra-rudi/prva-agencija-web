@@ -714,7 +714,7 @@ const mediaPaths = {
     heroBg: `${basePath}prva-optimizirane-slike/prva-hero-bg.png`,
     uslugeLines: `${basePath}prva-optimizirane-slike/usluge-lines-slika.png`,
     prvaCEO: `${basePath}prva-optimizirane-slike/prva-zena-1.webp`,
-    heroBgUpdate: `${basePath}prva-optimizirane-slike/prva-hero-bg-update.jpg`,
+    heroBgUpdate: `${basePath}prva-optimizirane-slike/prva-heros-bg-update.jpg`,
   },
 };
 

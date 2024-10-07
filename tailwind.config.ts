@@ -43,7 +43,10 @@ const config: Config = {
         'prva-svijetla-boja': '#C3C6B6',
         'prva-tamnozelena-boja': '#26312B',
         'prva-tamnija-boja': '#818272',
-        'prva-tamna-boja': '#17201E',
+        'prva-tamna-boja': '#181816',
+        'prva-text-color': '#26312b',
+        'prva-subtext': 'rgb(129, 130, 114)',
+        'prva-blida': '#4E4848',
         ///
         sutraButtonText: '#F0FDF4',
       },

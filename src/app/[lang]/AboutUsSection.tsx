@@ -34,7 +34,7 @@ const AboutUsSection = () => {
   });
 
   return (
-    <section className='w-full h-full min-h-screen flex items-center justify-center relative flex-wrap bg-white overflow-x-hidden'>
+    <section className='w-full h-full 2xl:min-h-screen min-h-[60vh] flex items-center justify-center relative flex-wrap bg-white overflow-x-hidden'>
       <Image
         src={teksturaPaper}
         alt='background texture'
@@ -43,13 +43,13 @@ const AboutUsSection = () => {
       />
       <div className='kontejner w-full h-full flex  items-center justify-center max-w-screen-xl mx-auto z-[2] flex-col'>
         <div className='kontejnermali w-full h-full flex justify-center gap-20  prva-custom-break:flex-nowrap flex-wrap'>
-          <div className='lg:max-w-[55ch]  w-full flex flex-col items-start justify-start gap-6  px-4 lg:pt-0 pt-12'>
-            <h2 className={`${PT.className} xl:text-5xl lg:text-4xl text-3xl text-prva-tamnozelena-boja `}>O nama</h2>
-            <p className='lg:text-lg text-base text-prva-tamnozelena-boja'>{textBlockFirst}</p>
-            <blockquote className={`${PT.className} lg:text-2xl text-xl  text-prva-tamnija-boja `}>
+          <div className='lg:max-w-[50ch]  w-full flex flex-col items-start justify-start gap-6  px-4 lg:pt-0 pt-12'>
+            <h2 className={`${PT.className} xl:text-5xl lg:text-4xl text-3xl text-prva-text-color`}>O nama</h2>
+            <p className='text-sm text-prva-text-color'>{textBlockFirst}</p>
+            <blockquote className={`${PT.className} xl:text-3xl lg:text-2xl text-xl  text-prva-subtext `}>
               <p>{quoteText}</p>
             </blockquote>
-            <p className='lg:text-lg text-base text-prva-tamnozelena-boja'>{textBlockSecond}</p>
+            <p className='text-sm text-prva-text-color'>{textBlockSecond}</p>
 
             <a href='/' className='bg-prva-tamnija-boja text-base text-almost-white px-9 py-4'>
               <button role='button' type='button' className='outline-none border-none'>

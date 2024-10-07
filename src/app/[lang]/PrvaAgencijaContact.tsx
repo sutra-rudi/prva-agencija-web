@@ -40,14 +40,20 @@ const PrvaAgencijaContactSection = () => {
 
   return (
     <section className={`w-full pb-20`}>
-      <h2 className={`${PT.className} xl:text-5xl lg:text-4xl text-3xl mx-auto text-center pt-20 pb-9 `}>Kontakt</h2>
+      <h2 className={`${PT.className} xl:text-5xl lg:text-4xl text-3xl mx-auto text-center pt-20 pb-4 `}>Kontakt</h2>
+
+      <div className='w-full flex items-center justify-center text-[15px] gap-2 md:pb-14 pb-10'>
+        <a href='mailto:info@prvaagencija.hr'>info@prvaagencija.hr</a>
+        <div className='h-[15px] w-px bg-prva-tamnozelena-boja'></div>
+        <a href='tel:+385991234567'>+385 99 1234 567</a>
+      </div>
 
       <form onSubmit={handleSubmit(onSubmit, onError)} className='w-full max-w-screen-sm z-40 mx-auto'>
         <div className='w-full flex items-center justify-start gap-4'>
           <div className='mb-4 w-full group'>
             <label
               htmlFor='name'
-              className='block mb-2 text-sm font-medium text-prva-tamnija-boja group-focus-within:text-prva-svijetla-boja transition-all ease-out duration-200'
+              className='mb-2 text-sm font-medium text-prva-tamnija-boja group-focus-within:text-prva-svijetla-boja transition-all ease-out duration-200 hidden'
             >
               Vaše ime
             </label>
@@ -69,7 +75,7 @@ const PrvaAgencijaContactSection = () => {
           <div className='mb-4 w-full group'>
             <label
               htmlFor='email'
-              className='block mb-2 text-sm font-medium text-prva-tamnija-boja group-focus-within:text-prva-svijetla-boja transition-all ease-out duration-200'
+              className='mb-2 text-sm font-medium text-prva-tamnija-boja group-focus-within:text-prva-svijetla-boja transition-all ease-out duration-200 hidden'
             >
               Vaš email
             </label>
@@ -96,7 +102,7 @@ const PrvaAgencijaContactSection = () => {
         <div className='mb-4 group'>
           <label
             htmlFor='message'
-            className='block mb-2 text-sm font-medium text-prva-tamnija-boja group-focus-within:text-prva-svijetla-boja transition-all ease-out duration-200'
+            className='mb-2 text-sm font-medium text-prva-tamnija-boja group-focus-within:text-prva-svijetla-boja transition-all ease-out duration-200 hidden'
           >
             Vaša poruka
           </label>
@@ -117,7 +123,7 @@ const PrvaAgencijaContactSection = () => {
         <div className='w-full flex items-center justify-center'>
           <button
             type='submit'
-            className='w-full bg-prva-tamna-boja  py-4 transition-all duration-200 ease-out cursor-pointer hover:bg-prva-tamnozelena-boja hover:text-almost-white hover:scale-95 font-medium text-almost-white'
+            className='w-full bg-prva-tamna-boja  py-4 transition-all duration-200 ease-out cursor-pointer hover:text-almost-white  font-medium text-almost-white hover:bg-prva-blida'
           >
             Pošalji poruku
           </button>

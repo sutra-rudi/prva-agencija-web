@@ -22,7 +22,7 @@ const HeroSection = ({ backgroundUrl }: HeroSectionInterface) => {
     shouldAlwaysCompleteAnimation: true,
   });
   return (
-    <section className='bg-white h-screen w-full relative animate-easeFadeBasic'>
+    <section className='bg-white h-[70dvh] w-full relative animate-easeFadeBasic'>
       <div className='relative w-full h-full bg-primary-dark flex items-center justify-center'>
         <div
           ref={foregroundParallax.ref as any}
@@ -31,7 +31,7 @@ const HeroSection = ({ backgroundUrl }: HeroSectionInterface) => {
           <h1
             className={`${CormoGara.className} text-prva-svijetla-boja xl:text-5xl text-4xl  whitespace-pre-wrap text-center`}
           >{`„Advertising is saying you're good.\nPR is getting someone else to say you're good.“ `}</h1>
-          <p className='text-prva-svijetla-boja lg:text-h5_xs text-lg'>Jean-Louis Gassée</p>
+          <p className={`${CormoGara.className} text-prva-subtext lg:text-h5_xs text-lg`}>Jean-Louis Gassée</p>
         </div>
         <Image
           ref={backgroundParallax.ref as any}

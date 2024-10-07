@@ -75,7 +75,8 @@ const BlogSection = ({ pageContent, lang, categoriesList, tagsList, blogCtaKey, 
             const languageField = blogLanguageFields[lang];
             const introField = contentShorthand[languageField]?.[`kratkiUvodniTekstSadrzaj${l}`];
 
-            const las = `naslovSadrzaj${lang === UserLanguage.eng ? `Sadrzaj${l}` : `${l}`}`;
+            // const las = `naslovSadrzaj${lang === UserLanguage.eng ? `Sadrzaj${l}` : `${l}`}`;
+            const las = `naslovSadrzaj${l}`;
 
             const authorField = contentShorthand.author.node;
             const tags = contentShorthand[`tags${l}`]?.[`tagText${l}`];

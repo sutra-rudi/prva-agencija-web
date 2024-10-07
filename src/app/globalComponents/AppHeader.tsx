@@ -18,6 +18,8 @@ const AppHeader = ({ logoUrl }: AppHeaderInterface) => {
   const splitPath = currentPath.split('/');
   const currentLang = splitPath[1];
 
+  const isNewsPage = React.useMemo(() => currentPath.split('/').includes('news'), [currentPath]);
+
   const [theme, setTheme] = React.useState(getThemeIfAny);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState<boolean>(false);
 
@@ -92,7 +94,7 @@ const AppHeader = ({ logoUrl }: AppHeaderInterface) => {
   };
 
   return (
-    <nav className='bg-transparent absolute z-50 w-full top-0'>
+    <nav className={`bg-transparent absolute z-50 w-full top-0`}>
       <div className='max-w-screen-xl px-4 mx-auto 2xl:px-0 pb-4 pt-12'>
         <div className='flex items-center justify-between'>
           <div className='flex items-center'>

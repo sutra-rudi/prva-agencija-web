@@ -1,6 +1,5 @@
 'use client';
 
-import Image from 'next/image';
 import { Cormorant_Garamond } from 'next/font/google';
 import Snowfall from 'react-snowfall';
 import { useParallax } from 'react-scroll-parallax';
@@ -88,15 +87,16 @@ const HeroSection = ({ backgroundUrl }: HeroSectionInterface) => {
         </div>
 
         <div className='w-full h-full inset-0 absolute select-none pointer-events-none'>
-          <Image
-            ref={backgroundParallax.ref as any}
-            src={backgroundUrl}
-            width={1600}
-            height={1200}
-            alt='backround overlay for Prva Agencija'
-            className='object-cover object-center block w-full h-full mx-auto my-0 select-none pointer-events-none opacity-10'
-            priority
-          />
+          <picture>
+            <img
+              ref={backgroundParallax.ref as any}
+              src={backgroundUrl}
+              width={1600}
+              height={1200}
+              alt='backround overlay for Prva Agencija'
+              className='object-cover object-center block w-full h-full mx-auto my-0 select-none pointer-events-none opacity-10'
+            />
+          </picture>
         </div>
       </div>
 

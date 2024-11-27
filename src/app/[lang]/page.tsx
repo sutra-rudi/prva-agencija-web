@@ -35,7 +35,7 @@ export default async function Landing({ params: { lang } }: { params: { lang: st
 
       <ContactSection formId={process.env.PRVA_AGENCIJA_FORMSPARK_KEY!} />
 
-      {baseCarouselDataShorthand && <CarouselBase imageArray={baseCarouselDataShorthand} />}
+      <CarouselBase imageArray={baseCarouselDataShorthand} />
     </main>
   );
 }

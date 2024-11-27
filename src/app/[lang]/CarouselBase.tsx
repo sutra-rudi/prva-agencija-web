@@ -3,9 +3,8 @@ interface CarouselBase {
   imageArray: any;
 }
 const CarouselBase = ({ imageArray }: CarouselBase) => {
-  const prepGallery = Object.values(imageArray)
-    .filter((g) => g)
-    .slice(0, 4);
+  const arr = Object.values(imageArray);
+  const prepGallery = [...arr, arr].filter((g) => g).slice(0, 4);
 
   return (
     <section>

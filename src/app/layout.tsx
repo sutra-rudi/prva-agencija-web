@@ -6,7 +6,7 @@ import { Suspense } from 'react';
 import Loading from './loading';
 import { Providers } from './providers';
 import { appleTouchIcons, favicons } from './pathsUtils/mediaImportsDynamic';
-
+import { GoogleAnalytics } from '@next/third-parties/google';
 const poppins = Poppins({ subsets: ['latin'], weight: ['300', '400', '500', '700'], display: 'swap' });
 import dynamic from 'next/dynamic';
 import { fetchMediaPaths } from './utils/callMediaPaths';
@@ -145,6 +145,8 @@ export default async function RootLayout({
         </Suspense>
         <AppFooter />
       </body>
+
+      <GoogleAnalytics gaId={process.env.PRVA_AGENCIJA_G_ANALYTICS!} />
     </html>
   );
 }

@@ -1,24 +1,26 @@
-import Image from 'next/image';
 import Marquee from 'react-fast-marquee';
 interface CarouselBase {
   imageArray: any;
 }
 const CarouselBase = ({ imageArray }: CarouselBase) => {
-  const prepGallery = Object.values(imageArray);
+  const prepGallery = Object.values(imageArray)
+    .filter((g) => g)
+    .slice(0, 4);
 
   return (
     <section>
       <Marquee direction='left' speed={148}>
         {prepGallery.map((galItem: any) => (
-          <div key={galItem.node.id} className='w-[400px] h-[300px] relative'>
-            <Image
+          <picture key={galItem.node.id} className='w-[400px] h-[300px]'>
+            <img
               src={galItem.node.sourceUrl}
               alt='carausel image'
-              fill
               loading='lazy'
-              className='object-cover object-center block'
+              width={400}
+              height={300}
+              className='object-cover object-center block h-full max-w-full w-full aspect-auto'
             />
-          </div>
+          </picture>
         ))}
       </Marquee>
     </section>

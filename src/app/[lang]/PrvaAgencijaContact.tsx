@@ -7,7 +7,11 @@ import toast from 'react-hot-toast';
 import { useFormspark } from '@formspark/use-formspark';
 const PT = PT_Serif({ subsets: ['latin'], weight: ['400'], style: ['italic'] });
 
-const PrvaAgencijaContactSection = () => {
+interface Contact {
+  formId: string;
+}
+
+const PrvaAgencijaContactSection = ({ formId }: Contact) => {
   const {
     register,
     handleSubmit,
@@ -21,10 +25,11 @@ const PrvaAgencijaContactSection = () => {
 
   const onSubmit = async (data: any, event: any) => {
     event.preventDefault();
+
     try {
       await submit({ ...data });
       reset();
-      toast.success(`Hvala na svemu!, ${JSON.stringify(data)}`);
+      toast.success(`Hvala na javljanju!, ${JSON.stringify(data)}`);
     } catch (error) {
       console.error('Error sending the message:', error);
       toast.error('Došlo je do pogreške prilikom slanja poruke.');
@@ -39,7 +44,7 @@ const PrvaAgencijaContactSection = () => {
   };
 
   return (
-    <section className={`w-full pb-20`}>
+    <section className={`w-full pb-20 px-4`} id='PRVA_KONTAKT'>
       <h2 className={`${PT.className} xl:text-5xl lg:text-4xl text-3xl mx-auto text-center pt-20 pb-4 `}>Kontakt</h2>
 
       <div className='w-full flex items-center justify-center text-[15px] gap-2 md:pb-14 pb-10'>

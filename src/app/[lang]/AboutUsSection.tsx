@@ -14,9 +14,7 @@ const textBlockFirst = `Zamislite da vaš brend postane glavni junak najuzbudlji
 const quoteText = `Biti ćemo vaš čarobnjak iz sjene, spreman da vaš brend podignemo na tron popularnosti. Naša formula za uspjeh kombinacija je strateškog pristupa, kreativne genijalnost i doze avanturizma koja osvaja srca.`;
 
 const textBlockSecond = `Napravite s nama PRvi korak ka željenom imidžu. Vodit ćemo Vam društvene mreže, kreirati online kampanje, pisati tekstove i članke, organizirati događaje i savjetovati Vas u vezi s poslovanjem. Zajedno ćemo ispisati stranice Vašeg uspjeha.`;
-interface Ab {
-  dataLog: any;
-}
+
 const AboutUsSection = () => {
   const backgroundParallax = useParallax({
     translateY: [0, 0],
@@ -51,11 +49,16 @@ const AboutUsSection = () => {
             </blockquote>
             <p className='text-sm text-prva-text-color'>{textBlockSecond}</p>
 
-            <a href='/' className='bg-prva-tamnija-boja text-base text-almost-white px-9 py-4'>
-              <button role='button' type='button' className='outline-none border-none'>
-                Kontaktiraj nas
-              </button>
-            </a>
+            <div
+              onClick={() => {
+                const ele = document.getElementById('PRVA_KONTAKT');
+
+                ele && ele.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
+              }}
+              className='bg-prva-tamnija-boja text-base text-almost-white px-9 py-4 cursor-pointer transition-all hover:bg-prva-tamnozelena-boja'
+            >
+              <p className='outline-none border-none'>Kontaktiraj nas</p>
+            </div>
           </div>
           <div className='w-full relative h-full lg:min-h-[auto] min-h-[70vh] md:px-0 sm:px-4 px-0'>
             <Image

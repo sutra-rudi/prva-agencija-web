@@ -7,7 +7,7 @@ import sectionBgWhite from '../images/blog-background-bila.png';
 import { readingTime } from 'reading-time-estimator';
 import { FiClock as ClockIcon } from 'react-icons/fi';
 import { LiaArrowRightSolid as ArrowIcon } from 'react-icons/lia';
-import PrvaAgencijaContactSection from './PrvaAgencijaContact';
+
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -132,8 +132,6 @@ const NewsSection = ({ pageContent, lang }: NewsSectionInterface) => {
           <ArrowIcon />
         </div>
       </div>
-
-      <PrvaAgencijaContactSection />
     </section>
   );
 };

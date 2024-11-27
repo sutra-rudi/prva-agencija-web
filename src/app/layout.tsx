@@ -23,7 +23,27 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   title: 'Prva Agencija',
-  description: 'Marketing',
+  description:
+    'Zamislite da vaš brend postane glavni junak najuzbudljivijeg romana, a mi smo autori koji pišu svaku stranicu sa strašću i preciznošću.',
+  robots: 'index, follow',
+
+  keywords: 'brendiranje, marketing, agencija, dizajn, SEO, digitalni marketing, online marketing',
+  authors: [
+    {
+      name: 'Prva Agencija',
+    },
+    {
+      name: 'Studio Sutra',
+    },
+  ],
+
+  openGraph: {
+    title: 'Prva Agencija',
+    description:
+      'Zamislite da vaš brend postane glavni junak najuzbudljivijeg romana, a mi smo autori koji pišu svaku stranicu sa strašću i preciznošću.',
+    url: 'https://www.prva-agencija.hr/',
+    siteName: 'Prva Agencija',
+  },
 
   icons: [
     {

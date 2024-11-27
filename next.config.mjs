@@ -14,6 +14,9 @@ const nextConfig = {
       },
     ],
   },
+  experimental: {
+    optimizePackageImports: ['framer-motion', 'react-snowfall'],
+  },
 };
 
 export default nextConfig;

@@ -20,19 +20,23 @@ const PrvaAgencijaContactSection = ({ formId }: Contact) => {
   } = useForm();
 
   const [submit, submitting] = useFormspark({
-    formId: '9DolWOCtL',
+    formId: formId,
   });
 
   const onSubmit = async (data: any, event: any) => {
     event.preventDefault();
 
     try {
-      await submit({ ...data });
+      await toast.promise(submit({ ...data }), {
+        loading: 'Šaljemo vašu poruku...',
+        success: 'Poruka je uspješno poslana!',
+        error: 'Došlo je do problema. Pokušajte ponovno.',
+      });
+
       reset();
-      toast.success(`Hvala na javljanju!, ${JSON.stringify(data)}`);
     } catch (error) {
       console.error('Error sending the message:', error);
-      toast.error('Došlo je do pogreške prilikom slanja poruke.');
+      toast.error('Ups! Nešto je pošlo po zlu. Pokušajte kasnije.');
     }
   };
 

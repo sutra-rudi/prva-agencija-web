@@ -27,7 +27,13 @@ const PrvaAgencijaContactSection = ({ formId }: Contact) => {
     event.preventDefault();
 
     try {
-      await toast.promise(submit({ ...data }), {
+      const parseClientData = {
+        ['Ime osobe']: data.name,
+        ['Email adresa']: data.email,
+        ['Poruka']: data.message,
+      };
+
+      await toast.promise(submit({ ...parseClientData }), {
         loading: 'Šaljemo vašu poruku...',
         success: 'Poruka je uspješno poslana!',
         error: 'Došlo je do problema. Pokušajte ponovno.',
